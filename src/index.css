@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  15% { transform: rotate(20deg); }
+  30% { transform: rotate(-10deg); }
+  45% { transform: rotate(20deg); }
+  60% { transform: rotate(-5deg); }
+  75% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.wave-hover:hover {
+  display: inline-block;
+  animation: wave 0.8s ease-in-out infinite;
+  transform-origin: 70% 70%; 
+}
+
+:root {
+  --bg-color: white;
+  --glow-color: black;
+}
+
+.dark {
+  --bg-color: black;
+  --glow-color: white;
+}
