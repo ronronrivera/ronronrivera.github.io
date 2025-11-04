@@ -130,7 +130,7 @@ function ChatBot() {
             type="text"
             ref={inputRef}
             placeholder="Ask anything..."
-            className=" flex-1 px-3 py-2 rounded-l-lg border border-white dark:border-gray-900 dark:bg-white text-black focus:outline-none"
+            className=" flex-1 px-3 py-2 rounded-l-lg border border-white dark:border-gray-900 placeholder:text-gray-700 dark:bg-white text-black focus:outline-none"
             onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
           />
           <button

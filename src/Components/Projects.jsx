@@ -15,7 +15,7 @@ const DEFAULT_ITEMS = [
   {
     title: 'Coming soon...',
     description: 'New project in progress',
-    id: 3,
+    id: 2,
     image: "",
     link: "#",
   },
@@ -214,12 +214,12 @@ export default function Carousel({
       {/* Text + link */}
       <div className="relative z-20 h-full flex flex-col justify-end p-6">
     
-        <Link to="/projects" className="text-2xl font-bold text-white mb-2 hover:underline">
+        <Link to="/projects" className={`text-2xl font-bold ${item.image? "text-white" : "dark:text-gray-900 text-white"} mb-2 hover:underline`}>
           {item.title}
         </Link>
         
       
-        <p className="text-sm text-gray-200">{item.description}</p>
+        <p className={`text-sm font-bold ${item.image? "text-white" : "dark:text-gray-900 text-white"} mb-2`}>{item.description}</p>
       </div>
    </motion.div>
   );
