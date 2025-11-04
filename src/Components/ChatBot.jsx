@@ -13,6 +13,54 @@ function ChatBot() {
   const inputRef = useRef();
   const chatBodyRef = useRef();
 
+  // Function to render text with HTML tags
+  const renderTextWithHTML = (text) => {
+    if (!text) return text;
+    
+    // Create a temporary div to parse HTML
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = text;
+    
+    // Get the text content without HTML tags for security
+    const plainText = tempDiv.textContent || tempDiv.innerText || '';
+    
+    // Simple sanitization and link detection
+    const linkRegex = /(https?:\/\/[^\s]+)/g;
+    const withLinks = plainText.split(linkRegex).map((part, index) => {
+      if (part.match(linkRegex)) {
+        return (
+          <a 
+            key={index}
+            href={part} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-blue-400 underline hover:text-blue-300"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {part}
+          </a>
+        );
+      }
+      return part;
+    });
+
+    return withLinks;
+  };
+
+  // Alternative: More advanced HTML rendering (use with caution)
+  const renderHTMLSafely = (htmlString) => {
+    if (!htmlString) return htmlString;
+    
+    // Basic sanitization - in production, use a proper sanitizer like DOMPurify
+    const sanitizedHtml = htmlString
+      .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+      .replace(/on\w+="[^"]*"/g, '')
+      .replace(/on\w+='[^']*'/g, '')
+      .replace(/javascript:/gi, '');
+    
+    return <div dangerouslySetInnerHTML={{ __html: sanitizedHtml }} />;
+  };
+
   const generateBotResponse = async (history) => {
     const updateHistory = (text) => {
       setChatHistory((prev) => [
@@ -21,18 +69,17 @@ function ChatBot() {
       ]);
     };
     try {
-
-      //callling the back end server with a method post
+      // calling the back end server with a method post
       const response = await axiosInstance.post("/chat", {message: history})
-      //take the response from the back end server
+      // take the response from the back end server
       const data = response.data;
       console.log("API response:", data);
      
-      //take the reply object from back end server
+      // take the reply object from back end server
       const apiResponseText =
         data.reply ||
-        "Hmm... I couldn’t generate a response.";
-      //update the chat history
+        "Hmm... I couldn't generate a response.";
+      // update the chat history
       updateHistory(apiResponseText.trim());
     } catch (error) {
       console.error(error);
@@ -54,7 +101,7 @@ function ChatBot() {
   };
 
   useEffect(() => {
-      chatBodyRef.current.scrollTo({top: chatBodyRef.current.scrollHeight, behavior: "smooth"})
+    chatBodyRef.current.scrollTo({top: chatBodyRef.current.scrollHeight, behavior: "smooth"})
   }, [chatHistory])
 
   return (
@@ -71,7 +118,7 @@ function ChatBot() {
           {/* Initial bot message */}
           <div className="my-2 flex justify-start">
             <div className="px-3 py-2 rounded-lg text-sm bg-gray-700 dark:bg-gray-200">
-              Hello! <span className="wave-hover">👋</span> My Name is Nor and I’m Ron-ron Rivera’s assistant. Ask me anything.
+              Hello! <span className="wave-hover">👋</span> My Name is Nor and I'm Ron-ron Rivera's assistant. Ask me anything.
             </div>
           </div>
 
@@ -90,7 +137,17 @@ function ChatBot() {
                     : "bg-gray-700 dark:bg-gray-200 dark:text-black"
                 }`}
               >
-                {msg.text}
+                {/* Use renderTextWithHTML for safe link rendering */}
+                {msg.role === "model" && msg.text !== "Thinking..." 
+                  ? renderTextWithHTML(msg.text)
+                  : msg.text
+                }
+                
+                {/* Alternative: Use this for more complex HTML (be careful with security) */}
+                {/* {msg.role === "model" && msg.text !== "Thinking..." 
+                  ? renderHTMLSafely(msg.text)
+                  : msg.text
+                } */}
               </div>
             </div>
           ))}
