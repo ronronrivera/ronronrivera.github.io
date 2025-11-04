@@ -13,11 +13,11 @@ const DEFAULT_ITEMS = [
     link: "https://ronronrivera.github.io/My-Portfolio/"
   },
   {
-    title: 'Chat App',
-    description: 'An App that lets you connect and message with other people, built using MERN (MongoDB, Express, React, Node) stack',
-    id: 2,
-    image: ChatApp,
-    link: "https://chat-app-iwxv3.sevalla.app/",
+    title: 'Coming soon...',
+    description: 'New project in progress',
+    id: 3,
+    image: "",
+    link: "#",
   },
   {
     title: 'Coming soon...',

@@ -11,13 +11,6 @@ const projectList = [
     link: "https://ronronrivera.github.io/",
     source: "https://github.com/ronronrivera/My-Portfolio"
   },
-  {
-    title: "Chat App",
-    paragraph: "A real-time chat app I built using the MERN stack (MongoDB, Express, React, and Node.js). It lets users create accounts, log in securely with JWT authentication, and chat instantly through Socket.io. The app also supports image sharing and plays a sound when a new message arrives — making conversations feel more alive. I designed it to be fast, responsive, and scalable, showing how I can bring together both backend and frontend technologies into one seamless, production-ready web app.",
-    imgSrc:"/project-images/chat-app.png",
-    link: "https://chat-app-iwxv3.sevalla.app/",
-    source: "https://github.com/ronronrivera/chat-app/"
-  }
 ]
 
 const ProjectPage = () => {

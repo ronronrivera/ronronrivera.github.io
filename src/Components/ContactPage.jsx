@@ -34,7 +34,7 @@ const ContactPage = () => {
 		setLoading(true)
 		try{
 			await axiosInstance.post("/send", contactForm);
-			toast.success("Message sent successfully!");
+			toast.success("Message sent successfully! I'll get back to you soon");
 			setContactForm({
 				name: "",
 				email: "",
