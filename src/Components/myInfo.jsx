@@ -32,18 +32,14 @@ function MyInfo(){
       <h3 className="mt-10 text-lg font-semibold tracking-wider text-white dark:text-black mb-8">
   Front End
       </h3>
-      <div className="flex justify-center items-center">
+        <div className="ml-0 md:ml-14 flex justify-center items-center">
         <div className="flex w-96 mb-20 gap-4">
             
           <div className=" flex flex-col items-center justify-center w-24 h-24 p-2 border border-white rounded-lg dark:border-gray-900 transition duration-300 ease-in-out hover:shadow-xl hover:scale-110">
               <HTML className="w-full h-auto hover:text-[#E34F26] transition duration-300 ease-in-out"/>
                 <span className="mt-3 text-sm font-medium">HTML 5</span>
             </div>
-          <div className="flex flex-col items-center justify-center w-24 h-24 p-2 border border-white rounded-lg dark:border-gray-900 transition duration-300 ease-in-out hover:shadow-xl hover:scale-110">
-              <CSS className="w-full h-auto hover:text-[#2965f1] transition duration-300 ease-in-out"/>
-                <span className="mt-3 text-sm font-medium">CSS</span>
-            </div>
-          <div className="flex flex-col items-center justify-center w-24 h-24 p-2 border border-white rounded-lg dark:border-gray-900 transition duration-300 ease-in-out hover:shadow-xl hover:scale-110">
+            <div className="flex flex-col items-center justify-center w-24 h-24 p-2 border border-white rounded-lg dark:border-gray-900 transition duration-300 ease-in-out hover:shadow-xl hover:scale-110">
               <ReactSkill className="w-full h-auto hover:text-[#61dafb] transition duration-300 ease-in-out"/>
                 <span className="mt-3 text-sm font-medium">ReactJS</span>
             </div>
