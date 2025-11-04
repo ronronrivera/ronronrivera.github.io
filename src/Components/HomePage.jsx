@@ -69,7 +69,7 @@ function HomePage() {
         >
 
           {/*Contact Page*/}
-          <div className="flex justify-center">
+          <div className="flex justify-center mt-20">
             <div className="w-full max-w-2xl">
               <div className="flex items-center space-x-2 mb-6">
                 <h2 className='text-xl font-semibold mb-6 dark:text-gray-900 text-gray-50'>Let's work together!</h2>

@@ -95,7 +95,7 @@ function MyInfo(){
       <h3 className="text-lg font-semibold tracking-wider text-white dark:text-black mb-8">
       System/Graphics
       </h3>
-        <div className="ml-12 sm:ml-44 flex justify-center items-center">
+        <div className="ml-8 sm:ml-32 md:ml-44 flex justify-center items-center">
         <div className="flex w-96 mb-20 gap-4">           
             <div className="flex flex-col items-center justify-center w-24 h-24 p-2 border border-white rounded-lg dark:border-gray-900 transition duration-300 ease-in-out hover:shadow-xl hover:scale-110">
               <CPP className="w-full h-auto hover:text-[#00599C] transition duration-300 ease-in-out"/>

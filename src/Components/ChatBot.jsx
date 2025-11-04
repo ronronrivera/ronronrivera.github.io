@@ -59,7 +59,7 @@ function ChatBot() {
 
   return (
     <div className="flex justify-center">
-      <div className="my-5 w-full max-w-2xl">
+      <div className="my-5 w-full max-w-lg ">
         {/* HEADER */}
         <div className="flex items-center space-x-2 mb-4">
           <BotIcon className="w-6 h-6 text-blue-600" />
@@ -95,22 +95,24 @@ function ChatBot() {
             </div>
           ))}
         </div>
-
+        <div className="flex justify-center items-center">
         {/* INPUT */}
-        <div className="flex">
+          <div className="flex sm:w-full w-auto">
           <input
             type="text"
             ref={inputRef}
             placeholder="Ask anything..."
-            className="flex-1 px-3 py-2 rounded-l-lg border border-white dark:border-gray-900 dark:bg-white text-black focus:outline-none"
+            className=" flex-1 px-3 py-2 rounded-l-lg border border-white dark:border-gray-900 dark:bg-white text-black focus:outline-none"
             onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
           />
           <button
             onClick={handleSubmit}
-            className="px-4 py-2 bg-blue-500 text-white rounded-r-lg hover:bg-blue-600 active:bg-blue-700 transition"
+            className=" px-4 py-2 bg-blue-500 text-white rounded-r-lg hover:bg-blue-600 active:bg-blue-700 transition"
           >
             Send
           </button>
+        </div>
+ 
         </div>
       </div>
     </div>

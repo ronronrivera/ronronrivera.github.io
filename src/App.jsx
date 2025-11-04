@@ -6,6 +6,7 @@ import { ThemeProvider } from "./Context/ThemeContext.jsx";
 import Particles from "./Components/Background.jsx";
 import { motion } from "framer-motion";
 import AboutMe from "./Components/AboutMe.jsx";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           </Routes>
         </div>
       </motion.div>
+      <Toaster/>
     </ThemeProvider>
   );
 }

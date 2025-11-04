@@ -6,14 +6,14 @@ import ProjectCard from './ProjectCard'
 const projectList = [
   {
     title: "My Portfolio",
-    paragraph: "A modern, responsive portfolio built with ReactJS and TailwindCSS to showcase my skills, projects, and background as a computer science student. It features smooth animations, clean UI components, and a dark/light theme toggle for an elegant and interactive browsing experience.",
+    paragraph: "My portfolio is a modern, responsive website built with ReactJS,TailwindCSS, Express and NodeJS to share my skills, projects, and background as a computer science student. It has smooth animations, a clean and simple design, a dark/light mode toggle, and even a built-in AI chatbot so visitors can interact with me in a more fun and personal way",
     imgSrc: "/project-images/portfolio.png",
-    link: "https://ronronrivera.github.io/My-Portfolio/",
+    link: "https://ronronrivera.github.io/",
     source: "https://github.com/ronronrivera/My-Portfolio"
   },
   {
     title: "Chat App",
-    paragraph: "A real-time chat application developed using the MERN stack (MongoDB, Express, React, Node.js). It allows users to create accounts, log in securely through JWT-based authentication, and exchange messages instantly through Socket.io communication. The app supports image sharing, and sound notifications for new messages, providing a smooth and interactive chatting experience. Designed with scalability and responsiveness in mind, it demonstrates my ability to integrate backend and frontend technologies into a cohesive, production-ready web application.",
+    paragraph: "A real-time chat app I built using the MERN stack (MongoDB, Express, React, and Node.js). It lets users create accounts, log in securely with JWT authentication, and chat instantly through Socket.io. The app also supports image sharing and plays a sound when a new message arrives — making conversations feel more alive. I designed it to be fast, responsive, and scalable, showing how I can bring together both backend and frontend technologies into one seamless, production-ready web app.",
     imgSrc:"/project-images/chat-app.png",
     link: "https://chat-app-iwxv3.sevalla.app/",
     source: "https://github.com/ronronrivera/chat-app/"

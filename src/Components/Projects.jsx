@@ -1,22 +1,23 @@
 import { useEffect, useState, useRef } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import Portfolio from "../assets/project-images/portfolio.png"
+import ChatApp from "../assets/project-images/chat-app.png"
 import { Link } from 'react-router';
 
 const DEFAULT_ITEMS = [
   {
     title: 'My Portfolio',
-    description: 'A modern, responsive portfolio built with ReactJS and TailwindCSS',
+    description: 'A modern, responsive portfolio with chatbot built with ReactJS, TalwindCSS, Express, and NodeJS',
     id: 1,
     image: Portfolio,
     link: "https://ronronrivera.github.io/My-Portfolio/"
   },
   {
-    title: 'Coming soon...',
-    description: 'New project in progress',
+    title: 'Chat App',
+    description: 'An App that lets you connect and message with other people, built using MERN (MongoDB, Express, React, Node) stack',
     id: 2,
-    image: "",
-    link: "#",
+    image: ChatApp,
+    link: "https://chat-app-iwxv3.sevalla.app/",
   },
   {
     title: 'Coming soon...',
