@@ -18,7 +18,7 @@ const techLogos = [
 function HomePage() {
   return (
     <motion.div
-      initial={{ opacity: 1, y: 40 }}
+      initial={{ opacity: 1, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.2, ease: "easeOut" }}
       className="text-white transition duration-300 ease-in-out relative z-10 dark:bg-transparent dark:text-black"

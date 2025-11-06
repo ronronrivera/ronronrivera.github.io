@@ -28,3 +28,8 @@
   --bg-color: black;
   --glow-color: white;
 }
+
+
+html {
+  overflow-y: scroll;
+}
