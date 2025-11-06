@@ -27,9 +27,8 @@ const Bio = () => {
           My core interest lies in creating systems that combine 
           <span className="text-blue-400 font-semibold"> precise mathematical logic, physics simulation,</span> 
           and <span className="text-blue-400 font-semibold">artificial intelligence</span>.  
-          I enjoy turning complex problems into elegant, efficient solutions — 
-          whether that’s rendering realistic lighting in OpenGL or designing robust back-end architectures.
-        </p>
+           Whether it's creating sturdy back-end systems or producing realistic lighting in OpenGL, I enjoy transforming challenging issues into elegant, effective solutions.
+          </p>
 
         <p>
           I’m comfortable working with 

@@ -26,7 +26,7 @@ const questions = [
       "It depends on complexity. A small website or tool may take a week or two, while a complex app or graphics project might take several weeks. I always provide a realistic estimate before starting.",
   },
   {
-    question: "Do you require upfront payment?",
+question: "Do you require upfront payment?",
     answer:
       "For freelance projects, yes — I usually ask for a 30–50% upfront payment to secure the project, with the rest due upon delivery or milestone completion. This keeps things fair and professional for both sides.",
   },
@@ -65,6 +65,11 @@ const questions = [
     answer:
       "I follow best practices like modular design, consistent naming, and version control. I test thoroughly, profile code where needed, and prioritize efficiency — especially for C++ or real-time systems.",
   },
+  {
+  question: "Do you offer refunds?",
+  answer: "Refunds are only available if I haven’t started the project or if there’s a valid issue that prevents me from completing the work. Once work has begun, partial refunds depend on progress.",
+  },
+  
 ];
 
 const TechnicalQuestions = () => {

@@ -2,14 +2,14 @@ import MyInfo from "./myInfo.jsx";
 import Carousel from "./Projects.jsx"; 
 import LogoLoop from "./Socials.jsx";
 import { motion } from "framer-motion";
-import { IoLogoLinkedin } from 'react-icons/io';
+import { FaDiscord } from "react-icons/fa";
 import { FaFacebookSquare, FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import ContacPage from "./ContactPage.jsx"
 import ChatBot from "./ChatBot.jsx";
 
 const techLogos = [
-  { node: <IoLogoLinkedin />, title: "LinkedIn", href: "https://www.linkedin.com/in/ron-ron-rivera-8b814032a/" },
+  { node: <FaDiscord />, title: "Discord", href: "discord.com/users/524403586193686528" },
   { node: <FaFacebookSquare />, title: "Facebook", href: "https://www.facebook.com/ronron.rivera42" },
   { node: <FaXTwitter />, title: "X", href: "https://x.com/RonRivera361892" },
   { node: <FaGithub />, title: "Github", href: "https://github.com/ronronrivera/" },
