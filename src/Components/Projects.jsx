@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import Portfolio from "../assets/project-images/portfolio.png"
 import ChatApp from "../assets/project-images/chat-app.png"
+import Commerce from "../assets/project-images/commerce.jpg"
 import { Link } from 'react-router';
 
 const DEFAULT_ITEMS = [
@@ -13,17 +14,17 @@ const DEFAULT_ITEMS = [
     link: "https://ronronrivera.github.io/My-Portfolio/"
   },
   {
-    title: 'Coming soon...',
-    description: 'New project in progress',
+    title: 'E-commerce Store',
+    description: 'A full-featured e-commerce web app I developed using the MERN stack (MongoDB, Express, React, and Node.js).',
     id: 2,
-    image: "",
+    image: Commerce,
     link: "#",
   },
   {
-    title: 'Coming soon...',
-    description: 'New project in progress',
+    title: 'Chat App',
+    description: 'A real-time chat app I built using the MERN stack (MongoDB, Express, React, and Node.js).',
     id: 3,
-    image: "",
+    image: ChatApp,
     link: "#",
   },
 
