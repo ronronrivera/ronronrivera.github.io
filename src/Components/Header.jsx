@@ -11,6 +11,7 @@ function Header() {
           <div className="flex items-center text-sm gap-3">
             <Link to="/projects">projects</Link>
             <Link to="/about-me">about me</Link>
+            <a href="https://drive.google.com/file/d/1cxvXpHvm2byagjOCsmKvg6NoewbBT3b3/view?usp=sharing" target="_blank">resume</a>
            <DarkModeToggler/>
           </div>
         </div>

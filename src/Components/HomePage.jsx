@@ -7,6 +7,9 @@ import { FaFacebookSquare, FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import ContacPage from "./ContactPage.jsx"
 import ChatBot from "./ChatBot.jsx";
+import { useDarkMode } from "../Context/ThemeContext.jsx";
+
+
 
 const techLogos = [
   { node: <FaDiscord />, title: "Discord", href: "discord.com/users/524403586193686528" },
@@ -16,6 +19,9 @@ const techLogos = [
 ];
 
 function HomePage() {
+  
+  const {darkMode} = useDarkMode();
+
   return (
     <motion.div
       initial={{ opacity: 1, y: 20 }}
@@ -108,7 +114,7 @@ function HomePage() {
                 pauseOnHover
                 scaleOnHover
                 fadeOut
-                fadeOutColor="#ffffff"
+                fadeOutColor={!darkMode ? '#111827' : '#ffffff'}
                 ariaLabel="Social links"
                 className="my-0"
               />
