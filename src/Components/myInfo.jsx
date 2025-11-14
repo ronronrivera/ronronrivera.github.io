@@ -36,7 +36,7 @@ function MyInfo(){
   Front End
       </h3>
         <div className="flex justify-center items-center">
-        <div className="grid grid-cols-3 sm:grid-cols-3 gap-4 justify-items-center mb-20">
+          <div className="grid grid-cols-3 sm:grid-cols-3 gap-7 md:gap-4 justify-items-center mb-20">
             
           <div className=" flex flex-col items-center justify-center w-24 h-24 p-2 border border-white rounded-lg dark:border-gray-900 transition duration-300 ease-in-out hover:shadow-xl hover:scale-110">
               <HTML className="w-full h-auto hover:text-[#E34F26] transition duration-300 ease-in-out"/>
@@ -57,7 +57,7 @@ function MyInfo(){
   Back End
       </h3>
         <div className="flex justify-center items-center">
-        <div className="grid grid-cols-3 sm:grid-cols-3 gap-4 justify-items-center mb-20">
+        <div className="grid grid-cols-3 sm:grid-cols-3 gap-7 md:gap-4  justify-items-center mb-20">
           <div className="flex flex-col items-center justify-center w-24 h-24 p-2 border border-white rounded-lg dark:border-gray-900 transition duration-300 ease-in-out hover:shadow-xl hover:scale-110">
           <NodeJS className="w-full h-auto hover:text-[#339933] transition duration-300 ease-in-out"/>
                 <span className="mt-3 text-sm font-medium">NodeJs</span>
@@ -76,7 +76,7 @@ function MyInfo(){
   Tools
       </h3>
         <div className="flex justify-center items-center">
-          <div className="grid grid-cols-3 sm:grid-cols-3 gap-4 justify-items-center mb-20">
+          <div className="grid grid-cols-3 sm:grid-cols-3 gap-7 md:gap-4  justify-items-center mb-20">
           <div className="flex flex-col items-center justify-center w-24 h-24 p-2 border border-white rounded-lg dark:border-gray-900 transition duration-300 ease-in-out hover:shadow-xl hover:scale-110">
           <Git className="w-full h-auto hover:text-[#F05033] transition duration-300 ease-in-out"/>
                 <span className="mt-3 text-sm font-medium">Git</span>

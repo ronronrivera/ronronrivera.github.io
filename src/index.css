@@ -10,6 +10,11 @@ body {
   scrollbar-width: none;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
 @keyframes wave {
   0% { transform: rotate(0deg); }
   15% { transform: rotate(20deg); }
