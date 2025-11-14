@@ -83,7 +83,7 @@ function MyInfo(){
             </div>
               <div className="flex flex-col items-center justify-center w-24 h-24 p-2 border border-white rounded-lg dark:border-gray-900 transition duration-300 ease-in-out hover:shadow-xl hover:scale-110">
               <N8N className="w-full h-auto hover:text-[#EA4B2B] transition duration-300 ease-in-out"/>
-                <span className="mt-3 text-sm font-medium">N8N</span>
+                <span className="mt-3 text-sm font-medium">n8n</span>
             </div>
           <div className="flex flex-col items-center justify-center w-24 h-24 p-2 border border-white rounded-lg dark:border-gray-900 transition duration-300 ease-in-out hover:shadow-xl hover:scale-110"> 
           <ArchLinux className="w-full h-auto hover:text-[#1793D1] transition duration-300 ease-in-out"/>
