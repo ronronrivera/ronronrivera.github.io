@@ -12,7 +12,6 @@ function Header() {
             <Link to="/projects">projects</Link>
             <Link to="/about-me">about me</Link>
             <a href="https://drive.google.com/file/d/1yJQv8o0Imt-UJGmXPNZbOCdKzUBCAjUP/view?usp=sharing" target="_blank">resume</a>
-            i
            <DarkModeToggler/>
           </div>
         </div>
