@@ -6,6 +6,7 @@ import { ThemeProvider } from "./Context/ThemeContext.jsx";
 import Particles from "./Components/Background.jsx";
 import AboutMe from "./Components/AboutMe.jsx";
 import { Toaster } from "react-hot-toast";
+import PrivacyPolicy from "./Components/PrivacyPolicy.jsx";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/projects" element={<ProjectPage />} />
             <Route path="/about-me" element={<AboutMe/>} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
           </Routes>
         </div>
       <Toaster/>
