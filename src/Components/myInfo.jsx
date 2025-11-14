@@ -9,7 +9,7 @@ import { HTML,
           Express,
           OpenGL,
           Git,
-          Vim} from "./Skills";
+          N8N} from "./Skills";
 
 function MyInfo(){
   
@@ -28,7 +28,9 @@ function MyInfo(){
           </div>
         </div>
         <div className="mt-5">
-          <p>I’m a freelance developer who builds responsive websites and efficient apps using modern frameworks like React and Node.js. I focus on clean code, scalability, and user-centered design so clients get products that are reliable and easy to maintain.</p>
+          <p className='text-center sm:text-left'>
+            As a freelance developer, I utilize tools such as React, Node.js, and n8n to create responsive websites and applications, along with automated workflows. My focus is on delivering reliable, maintainable products enhanced by smart automations, emphasizing clean code, scalability, and user-centered design.
+          </p>
         </div>
       <h3 className="mt-10 text-lg font-semibold tracking-wider text-white dark:text-black mb-8">
   Front End
@@ -80,8 +82,8 @@ function MyInfo(){
                 <span className="mt-3 text-sm font-medium">Git</span>
             </div>
               <div className="flex flex-col items-center justify-center w-24 h-24 p-2 border border-white rounded-lg dark:border-gray-900 transition duration-300 ease-in-out hover:shadow-xl hover:scale-110">
-              <Vim className="w-full h-auto hover:text-[#000000] transition duration-300 ease-in-out"/>
-                <span className="mt-3 text-sm font-medium">Vim</span>
+              <N8N className="w-full h-auto hover:text-[#EA4B2B] transition duration-300 ease-in-out"/>
+                <span className="mt-3 text-sm font-medium">N8N</span>
             </div>
           <div className="flex flex-col items-center justify-center w-24 h-24 p-2 border border-white rounded-lg dark:border-gray-900 transition duration-300 ease-in-out hover:shadow-xl hover:scale-110"> 
           <ArchLinux className="w-full h-auto hover:text-[#1793D1] transition duration-300 ease-in-out"/>

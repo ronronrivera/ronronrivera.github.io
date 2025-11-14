@@ -1,4 +1,3 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone } from "lucide-react";
@@ -39,6 +38,11 @@ const WhatICanDo = () => {
       num: "07",
       title: "Performance & Security Optimization",
       desc: "I focus on speed, stability, and security — using Redis caching, optimized queries, and encryption best practices for dependable performance."
+    },
+    {
+      num: "08",
+      title: "n8n Workflow Automation & API Orchestration",
+      desc: "I design scalable automations using n8n — integrating multiple APIs, building background tasks, webhooks, data pipelines, and fully automated business workflows without relying on expensive SaaS tools."
     }
   ];
 
@@ -49,15 +53,13 @@ const WhatICanDo = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7 }}
     >
-      <h2 className="text-2xl font-bold  mb-4">
-        💼 What I Can Do for You
-      </h2>
+      <h2 className="text-2xl font-bold mb-4">💼 What I Can Do for You</h2>
 
       <p className="text-sm leading-relaxed mb-4">
         I design and develop <span className="text-blue-400 font-semibold">modern, high-performance web applications</span> that bring real value to clients — combining strong backend logic, responsive design, and seamless user experience.
       </p>
 
-      <p className="text-sm  leading-relaxed mb-6">
+      <p className="text-sm leading-relaxed mb-6">
         Whether you’re looking for a <span className="text-blue-400 font-semibold">real-time communication platform</span> or a <span className="text-blue-400 font-semibold">secure, data-driven e-commerce system</span>, I can help you build it from concept to deployment — clean, fast, and reliable.
       </p>
 
@@ -66,7 +68,7 @@ const WhatICanDo = () => {
           <div key={index} className="flex gap-4">
             <span className="text-blue-500 text-lg font-bold w-8">{num}</span>
             <div>
-              <h3 className="text-sm font-semibold  mb-1">{title}</h3>
+              <h3 className="text-sm font-semibold mb-1">{title}</h3>
               <p className="text-xs leading-relaxed">{desc}</p>
             </div>
           </div>
@@ -79,7 +81,7 @@ const WhatICanDo = () => {
           <div className="flex items-center gap-2">
             <Mail size={15} className="text-blue-400" />
             <a
-              href="mailto:ronronrivera.dev@gmail.com"
+              href="mailto:ronaspe42@gmail.com"
               className="hover:text-blue-400 transition-colors"
             >
               ronaspe42@gmail.com

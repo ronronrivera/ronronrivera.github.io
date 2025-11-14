@@ -1,8 +1,6 @@
-
 import React from "react";
 import Question from "./Question";
-import {motion} from "framer-motion"
-
+import { motion } from "framer-motion";
 
 const questions = [
   {
@@ -26,7 +24,7 @@ const questions = [
       "It depends on complexity. A small website or tool may take a week or two, while a complex app or graphics project might take several weeks. I always provide a realistic estimate before starting.",
   },
   {
-question: "Do you require upfront payment?",
+    question: "Do you require upfront payment?",
     answer:
       "For freelance projects, yes — I usually ask for a 30–50% upfront payment to secure the project, with the rest due upon delivery or milestone completion. This keeps things fair and professional for both sides.",
   },
@@ -66,19 +64,30 @@ question: "Do you require upfront payment?",
       "I follow best practices like modular design, consistent naming, and version control. I test thoroughly, profile code where needed, and prioritize efficiency — especially for C++ or real-time systems.",
   },
   {
-  question: "Do you offer refunds?",
-  answer: "Refunds are only available if I haven’t started the project or if there’s a valid issue that prevents me from completing the work. Once work has begun, partial refunds depend on progress.",
+    question: "Do you offer refunds?",
+    answer:
+      "Refunds are only available if I haven’t started the project or if there’s a valid issue that prevents me from completing the work. Once work has begun, partial refunds depend on progress.",
   },
-  
+  {
+    question: "Can you build automations using n8n?",
+    answer:
+      "Yes. I can design n8n workflows that automate multi-step processes, integrate multiple APIs, handle background tasks, sync data between platforms, trigger custom webhooks, and fully automate business operations without relying on expensive SaaS tools.",
+  },
+  {
+    question: "What do you need to build an n8n workflow?",
+    answer:
+      "I only need access to the APIs or accounts you want integrated, along with a clear description of the automation you want. If required, I can help you set up n8n on your server or recommend the best hosting option.",
+  },
 ];
 
 const TechnicalQuestions = () => {
   return (
     <motion.div
-      initial={{opacity: 0, y:20}}
-      animate={{opacity: 1, y: 0}}
-      transition={{duration: 0.8}}
-      className="w-full max-w-2xl sm:w-[600px] p-4 sm:p-6 mx-auto shadow-xl">
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="w-full max-w-2xl sm:w-[600px] p-4 sm:p-6 mx-auto shadow-xl"
+    >
       {questions.map((q, i) => (
         <Question key={i} question={q.question} answer={q.answer} index={i} />
       ))}
