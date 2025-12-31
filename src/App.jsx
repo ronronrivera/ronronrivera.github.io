@@ -6,7 +6,7 @@ import { ThemeProvider } from "./Context/ThemeContext.jsx";
 import Particles from "./Components/Background.jsx";
 import AboutMe from "./Components/AboutMe.jsx";
 import { Toaster } from "react-hot-toast";
-import PrivacyPolicy from "./Components/PrivacyPolicy.jsx";
+
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
           particleBaseSize={100}
           moveParticlesOnHover={false}
           alphaParticles={true}
-          disableRotation={true}
+          disableRotation={false}
         />
       </div>
       <div className="px-10 py-0 fixed top-0 left-0 w-full z-50 bg-gray-900/90 dark:bg-white/80 backdrop-blur-sm">
@@ -31,7 +31,6 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/projects" element={<ProjectPage />} />
             <Route path="/about-me" element={<AboutMe/>} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
           </Routes>
         </div>
       <Toaster/>
