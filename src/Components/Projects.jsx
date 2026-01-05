@@ -27,12 +27,11 @@ const DEFAULT_ITEMS = [
     image: ChatApp,
     link: "#",
   },
-
   {
-    title: 'Coming soon...',
-    description: 'New project in progress',
+    title: 'Interview Platform',
+    description: 'A live coding interview platform to host remote technical interviews with real-time video, chat, collaborative code editing and code execution.',
     id: 4,
-    image: "",
+    image: "project-images/interview-platform.jpeg",
     link: "#",
   },
 

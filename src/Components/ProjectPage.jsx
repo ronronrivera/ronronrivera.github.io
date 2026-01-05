@@ -24,7 +24,15 @@ const projectList = [
     imgSrc: "project-images/commerce.jpg",
     link: "https://e-commerce-app-ap3d.onrender.com/",
     source: "https://github.com/ronronrivera/e-commerce-app"
-  }
+  },
+    {
+        title: "Interview Platform",
+        paragraph: "Interview Platform is a full-stack web application designed for conducting remote technical interviews and practice sessions in one integrated environment. It combines live video calls and real-time chat (via Stream), collaborative code editing with safe code execution (using the Piston API), and session creation, scheduling, and management backed by MongoDB. The platform uses Clerk for authentication, Inngest for background event orchestration, and provides basic analytics for sessions. Built with a React + Vite + Tailwind frontend and a Node.js/Express backend, it focuses on reducing tooling friction so interviewers and candidates can concentrate on solving problems rather than managing multiple tools.",
+        imgSrc: "/project-images/interview-platform.jpeg",
+        link: "https://gethired-io.onrender.com/",
+        source: "https://github.com/ronronrivera/Interview-Platform"
+        
+    }
 ]
 
 const ProjectPage = () => {

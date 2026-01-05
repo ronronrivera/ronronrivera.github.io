@@ -20,7 +20,7 @@ function App() {
           particleBaseSize={100}
           moveParticlesOnHover={false}
           alphaParticles={true}
-          disableRotation={false}
+          disableRotation={true}
         />
       </div>
       <div className="px-10 py-0 fixed top-0 left-0 w-full z-50 bg-gray-900/90 dark:bg-white/80 backdrop-blur-sm">
