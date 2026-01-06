@@ -24,7 +24,7 @@ const projectList = [
         title: "E-Commerce Store",
         paragraph: "A full-featured e-commerce web app I developed using the MERN stack (MongoDB, Express, React, and Node.js). It allows users to browse products, add items to their cart, and securely pay through Stripe. The platform includes an admin dashboard for managing products, tracking analytics, and generating coupon discounts for loyal customers. With JWT authentication, Redis caching, and a responsive UI built with Tailwind CSS, it delivers a smooth, secure, and professional shopping experience — showcasing my ability to build complex, scalable, and business-ready web applications from scratch.",
         imgSrc: "project-images/commerce.jpg",
-        link: "https://e-commerce-app-ap3d.onrender.com/",
+        link: "https://simple-commerce-t58k.onrender.com/login",
         source: "https://github.com/ronronrivera/e-commerce-app",
         hasUrl: true
     },
