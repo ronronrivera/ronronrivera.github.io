@@ -36,10 +36,10 @@ const DEFAULT_ITEMS = [
   },
 
   {
-    title: 'Coming soon...',
-    description: 'New project in progress',
+    title: 'Personal Neovim Setup',
+    description: 'built a fast, efficient Neovim setup with code completion, navigation, and lightweight plugins that keep coding smooth and low on RAM.',
     id: 5,
-    image: "",
+    image: "project-images/nvim.png",
     link: "#",
   },
 
