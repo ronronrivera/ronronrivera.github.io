@@ -12,7 +12,7 @@ const ContactPage = () => {
         message: "",
     });
 
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const textareaRef = useRef(null);
     const [sent, setSent] = useState(false);
 
