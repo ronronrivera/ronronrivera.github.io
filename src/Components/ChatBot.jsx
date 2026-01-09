@@ -83,8 +83,8 @@ function ChatBot() {
   }, [chatHistory])
 
   return (
-    <div className="flex justify-center">
-      <div className="my-5 w-full max-w-2xl ">
+    <div className="flex justify-center my-10">
+      <div className="w-full max-w-2xl ">
         {/* HEADER */}
         <div className="flex items-center space-x-2 mb-4">
           <BotIcon className="w-6 h-6 text-blue-600" />

@@ -46,7 +46,7 @@ function HomePage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="mt-20"
+          className="my-10"
         >
           <div className="flex justify-center">
             <div className="w-full max-w-2xl">
@@ -56,7 +56,7 @@ function HomePage() {
             </div>
           </div>
 
-          <div className="flex justify-center items-center relative my-8">
+          <div className="flex justify-center items-center relative my-10">
             <Carousel
               baseWidth={650}
               autoplay
@@ -75,7 +75,7 @@ function HomePage() {
         >
 
           {/*Contact Page*/}
-          <div className="flex justify-center mt-20">
+          <div className="flex justify-center my-10">
             <div className="w-full max-w-2xl">
               <div className="flex items-center space-x-2 mb-6">
                 <h2 className='text-xl font-semibold mb-6 dark:text-gray-900 text-gray-50'>Let's work together!</h2>
@@ -90,7 +90,7 @@ function HomePage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.0, duration: 0.8 }}
-          className="mt-24 mb-16"
+          className="my-10"
         >
           <div className="flex justify-center">
             <div className="w-full max-w-2xl">
