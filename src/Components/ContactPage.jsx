@@ -41,7 +41,6 @@ const ContactPage = () => {
                 email: "",
                 message: ""
             })
-            toast.success("Sent!");
             // Reset textarea height after form submission
             if (textareaRef.current) {
                 textareaRef.current.style.height = 'auto';
