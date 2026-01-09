@@ -24,7 +24,5 @@ dist-ssr
 *.sw?
 
 .env
+.flowbite-react
 
-src/ronronInfo.json
-src/ChatBot.jsx
-server.js
