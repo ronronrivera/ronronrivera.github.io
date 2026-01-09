@@ -64,7 +64,7 @@ const ContactPage = () => {
             {sent? (
                 <div className='flex justify-center items-center'>
                     <CheckmarkIcon className='size-4 mr-2'/>
-                    <h2 className='text-2xl dark:text-gray-900 text-white text-center'> Message sent, I'll get back to you</h2>
+                    <h2 className='text-2xl dark:text-gray-900 text-white text-center font-extrabold'> Message sent, I'll get back to you</h2>
                 </div>
             ):
             loading? (
