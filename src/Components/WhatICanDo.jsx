@@ -6,7 +6,7 @@ const WhatICanDo = () => {
   const services = [
     {
       num: "01",
-      title: "Full-Stack Web Development (MERN)",
+      title: "Junior Software Developer",
       desc: "I build fast, scalable, and maintainable web applications using MongoDB, Express, React, and Node.js — ensuring both strong backend logic and smooth user experience."
     },
     {

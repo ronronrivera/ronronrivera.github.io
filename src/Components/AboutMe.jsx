@@ -40,7 +40,7 @@ const AboutMe = () => {
       </div>
       <div className="mt-20 text-center">
         <h1 className="text-2xl font-bold">Ron-ron Aspe Rivera</h1>
-        <p className="dark:text-gray-600 text-gray-300">Computer Science Student · C++ & Full Stack Developer · OpenGL Enthusiast</p>
+        <p className="dark:text-gray-600 text-gray-300">Computer Science Student · Junior Software Developer </p>
       </div>
     </motion.div>
     <motion.div
