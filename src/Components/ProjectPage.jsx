@@ -10,7 +10,8 @@ const projectList = [
         imgSrc: "/project-images/portfolio.png",
         link: "https://ronronrivera.github.io/",
         source: "https://github.com/ronronrivera/My-Portfolio",
-        hasUrl: true
+        hasUrl: true,
+        isSuspended: false,
     },
     {
         title: "Chat App",
@@ -18,7 +19,8 @@ const projectList = [
         imgSrc: "project-images/chat-app.png",
         link: "https://chat-app-iwxv3.sevalla.app/",
         source: "https://github.com/ronronrivera/chat-app/",
-        hasUrl: true
+        hasUrl: true,
+        isSuspended: false,
     },
     {
         title: "E-Commerce Store",
@@ -26,7 +28,8 @@ const projectList = [
         imgSrc: "project-images/commerce.jpg",
         link: "https://simple-commerce-t58k.onrender.com/login",
         source: "https://github.com/ronronrivera/e-commerce-app",
-        hasUrl: true
+        hasUrl: true,
+        isSuspended: true,
     },
     {
         title: "Interview Platform",
@@ -35,6 +38,7 @@ const projectList = [
         link: "https://gethired-io.onrender.com/",
         source: "https://github.com/ronronrivera/Interview-Platform",
         hasUrl: true,
+        isSuspended: true,
 
     },
     {
@@ -44,6 +48,7 @@ const projectList = [
         link: "#",
         source: "https://github.com/ronronrivera/neovim-setup",
         hasUrl: false,
+        isSuspended: false
     }
 ]
 
