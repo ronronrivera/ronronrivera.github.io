@@ -12,6 +12,18 @@ const projectList = [
         source: "https://github.com/ronronrivera/My-Portfolio",
         hasUrl: true,
         isSuspended: false,
+        inDevelopment: false,
+    },
+
+    {
+        title: "Recruify",
+        paragraph: "A SaaS hiring platform I built using the MERN stack (MongoDB, Express, React, and Node.js). It allows companies to post jobs, manage applications, and track candidates efficiently. The platform supports secure authentication, role-based access for applicants and employers, and real-time updates for application status. I designed it to be fast, scalable, and user-friendly, demonstrating my ability to integrate complex backend logic with a polished frontend experience for a production-ready SaaS application.",
+        imgSrc: "project-images/hiring-platform.png",
+        link: "https://recruify.vercel.app/",
+        source: "https://github.com/ronronrivera/hiring-platform/",
+        hasUrl: true,
+        isSuspended: false,
+        inDevelopment: true,
     },
     {
         title: "Chat App",
@@ -21,6 +33,7 @@ const projectList = [
         source: "https://github.com/ronronrivera/chat-app/",
         hasUrl: true,
         isSuspended: false,
+        inDevelopment: false,
     },
     {
         title: "E-Commerce Store",
@@ -30,6 +43,7 @@ const projectList = [
         source: "https://github.com/ronronrivera/e-commerce-app",
         hasUrl: true,
         isSuspended: true,
+        inDevelopment: false,
     },
     {
         title: "Interview Platform",
@@ -39,6 +53,7 @@ const projectList = [
         source: "https://github.com/ronronrivera/Interview-Platform",
         hasUrl: true,
         isSuspended: true,
+        inDevelopment: false,
 
     },
     {
@@ -48,7 +63,8 @@ const projectList = [
         link: "#",
         source: "https://github.com/ronronrivera/neovim-setup",
         hasUrl: false,
-        isSuspended: false
+        isSuspended: false,
+        inDevelopment: false
     }
 ]
 

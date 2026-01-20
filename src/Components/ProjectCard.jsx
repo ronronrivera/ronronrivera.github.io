@@ -65,6 +65,28 @@ project.isSuspended
                             </button>
                         </div>
                     )}
+
+                    {project.inDevelopment && (
+                        <div className="relative group inline-flex items-center">
+                            {/* STATUS BADGE */}
+                            <span
+                                className="
+                                inline-flex items-center gap-2
+                                px-4 py-2
+                                rounded-full
+                                text-xs font-medium
+                                dark:text-amber-700 text-amber-400
+                                bg-amber-950
+                                border border-amber-200 dark:border-amber-900
+                                cursor-default
+                                select-none
+                                "
+                            >
+                                <span className="h-2 w-2 rounded-full bg-amber-500 animate-pulse" />
+                                In Development
+                            </span>
+                        </div>
+                    )}
                 </div>
             </Card>
         </div>

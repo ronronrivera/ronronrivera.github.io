@@ -11,7 +11,7 @@ const DEFAULT_ITEMS = [
     description: 'A modern, responsive portfolio with chatbot built with ReactJS, TalwindCSS, Express, and NodeJS',
     id: 1,
     image: Portfolio,
-    link: "https://ronronrivera.github.io/My-Portfolio/"
+    link: "#"
   },
   {
     title: 'E-commerce Store',
@@ -21,10 +21,10 @@ const DEFAULT_ITEMS = [
     link: "#",
   },
   {
-    title: 'Chat App',
-    description: 'A real-time chat app I built using the MERN stack (MongoDB, Express, React, and Node.js).',
+    title: 'Recruify',
+    description: 'A SaaS hiring platform I built using the MERN stack (MongoDB, Express, React, and Node.js). ',
     id: 3,
-    image: ChatApp,
+    image: "project-images/hiring-platform.png",
     link: "#",
   },
   {
