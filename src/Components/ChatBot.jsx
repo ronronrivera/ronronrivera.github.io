@@ -53,7 +53,6 @@ function ChatBot() {
     try {
       const response = await axiosInstance.post("/chat", {message: history})
       const data = response.data;
-      console.log("API response:", data);
      
       const apiResponseText =
         data.reply ||
