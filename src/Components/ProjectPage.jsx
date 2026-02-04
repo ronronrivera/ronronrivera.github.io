@@ -23,7 +23,7 @@ const projectList = [
         source: "https://github.com/ronronrivera/hiring-platform/",
         hasUrl: true,
         isSuspended: false,
-        inDevelopment: true,
+        inDevelopment: false,
     },
     {
         title: "Interview Platform",
