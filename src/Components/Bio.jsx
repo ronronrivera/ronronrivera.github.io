@@ -17,7 +17,7 @@ const Bio = () => {
         <p>
           I’m <span className="text-blue-400 font-semibold">Ron-ron Aspe Rivera</span>,
           a <span className="text-blue-400 font-semibold">Computer Science student</span>,
-          <span className="text-blue-400 font-semibold"> Junior Software Developer</span>, and
+          <span className="text-blue-400 font-semibold"> Backend Developer</span>, and
           <span className="text-blue-400 font-semibold"> n8n automation engineer</span> passionate about building
           high-performance software, scalable automations, and clean, user-focused websites.
         </p>
