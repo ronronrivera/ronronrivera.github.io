@@ -31,7 +31,7 @@ function Header() {
                             (<span>me</span>)
                             :
                             (<span>about me</span>)}</Link>
-                        <a href="https://drive.google.com/file/d/1vBtcjwQZymrgTSV3VkUkn5CjZFEeeQxZ/view?usp=sharing" target="_blank">resume</a>
+                        <a href="https://drive.google.com/file/d/1e9JGVtfMpCzR6g5i6-bvuz0yrktAP-qh/view?usp=sharing" target="_blank">resume</a>
                         <DarkModeToggler/>
                     </div>
                 </div>
