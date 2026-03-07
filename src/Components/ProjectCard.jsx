@@ -1,17 +1,14 @@
 import { Card } from 'flowbite-react'
-import { useState } from 'react';
 import { FiExternalLink } from "react-icons/fi";
 import SuspensionInfoCard from './Suspended';
 
 
 const ProjectCard = ({project}) => {
 
-    const [show, setShow] = useState(false);
-
     return (
         <div className='my-10'>
             <Card
-                className="max-w-lg hover:scale-110 transition duration-300 ease-in-out hover:shadow-2xl my-"
+                className="max-w-lg hover:scale-110 transition duration-300 ease-in-out hover:shadow-2xl-"
                 imgAlt="Meaningful alt text for an image that is not purely decorative"
                 imgSrc={project.imgSrc}
             >
