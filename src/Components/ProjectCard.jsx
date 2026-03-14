@@ -8,7 +8,7 @@ const ProjectCard = ({project}) => {
     return (
         <div className='my-10'>
             <Card
-                className="max-w-lg hover:scale-110 transition duration-300 ease-in-out hover:shadow-2xl"
+                className="max-w-lg transition duration-300 ease-in-out hover:shadow-2xl"
                 imgAlt="Meaningful alt text for an image that is not purely decorative"
                 imgSrc={project.imgSrc}
             >

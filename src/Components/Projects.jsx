@@ -1,16 +1,17 @@
 import { useEffect, useState, useRef } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
-import Portfolio from "../assets/project-images/portfolio.png"
 import ChatApp from "../assets/project-images/chat-app.png"
 import Commerce from "../assets/project-images/commerce.jpg"
 import { Link } from 'react-router';
 
+
+
 const DEFAULT_ITEMS = [
   {
-    title: 'My Portfolio',
-    description: 'A modern, responsive portfolio with chatbot built with ReactJS, TalwindCSS, Express, and NodeJS',
+    title: 'Case Forge',
+    description: "Caseforge is a SaaS platform that transforms a freelancer's rough project notes into a professionally designed, client-ready case study — in under a minute. Powered by Gemini AI and a credit-based generation system.",
     id: 1,
-    image: Portfolio,
+    image:"project-images/case-forge.png",
     link: "#"
   },
   {

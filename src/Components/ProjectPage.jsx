@@ -4,15 +4,16 @@ import { motion } from 'framer-motion'
 import ProjectCard from './ProjectCard'
 
 const projectList = [
+
     {
-        title: "My Portfolio",
-        paragraph: "My portfolio is a modern, responsive website built with ReactJS,TailwindCSS, Express and NodeJS to share my skills, projects, and background as a computer science student. It has smooth animations, a clean and simple design, a dark/light mode toggle, and even a built-in AI chatbot so visitors can interact with me in a more fun and personal way",
-        imgSrc: "/project-images/portfolio.png",
-        link: "https://ronronrivera.github.io/",
-        source: "https://github.com/ronronrivera/My-Portfolio",
+        title: "Case Forge",
+        paragraph: "Most freelancers lose clients not because their work is bad, but because they can't present it well. Writing a case study from scratch takes hours — structuring the problem, polishing the solution, making it look professional. Most skip it entirely and lose the deal. Caseforge solves that. A freelancer fills in a short form describing their project in plain language — rough notes, bullet points, anything — and the platform uses the Gemini AI API to rewrite it into polished, professional case study copy. The result is rendered into a beautifully designed PDF template, ready to send to a client or add to a portfolio.The product runs on a credit system. Every new user gets 2 free credits — enough for one complete generation. Watching your rough notes transform into something that actually looks like a real agency deliverable is the moment that converts free users into paying ones.",
+        link: "https://case-forge.vercel.app/",
+        imgSrc: "/project-images/case-forge.png",
+        source: "https://github.com/ronronrivera/",
         hasUrl: true,
         isSuspended: false,
-        inDevelopment: false,
+        inDevelopment: false, 
     },
 
     {
