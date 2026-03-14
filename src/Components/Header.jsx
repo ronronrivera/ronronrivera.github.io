@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import DarkModeToggler from "./DarkModeToggler.jsx";
 import {Link} from "react-router";
 
 function Header() {
@@ -32,7 +31,6 @@ function Header() {
                             :
                             (<span>about me</span>)}</Link>
                         <a href="https://drive.google.com/file/d/1QNQGZcS7fSpIqOjb6VXCoGZ7bUYaz9JH/view?usp=sharing" target="_blank">resume</a>
-                        <DarkModeToggler/>
                     </div>
                 </div>
             </div>
