@@ -30,7 +30,7 @@ function Header() {
                             (<span>me</span>)
                             :
                             (<span>about me</span>)}</Link>
-                        <a href="https://drive.google.com/file/d/1QNQGZcS7fSpIqOjb6VXCoGZ7bUYaz9JH/view?usp=sharing" target="_blank">resume</a>
+                        <a href="https://drive.google.com/file/d/1XLiprL_v7km8IyxziYby7CdiMyDRvI_X/view?usp=sharing" target="_blank">resume</a>
                     </div>
                 </div>
             </div>
