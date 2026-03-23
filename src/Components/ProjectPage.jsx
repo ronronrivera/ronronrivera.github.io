@@ -1,6 +1,7 @@
 
-import React from 'react'
+import React, { useEffect, useMemo } from 'react'
 import { motion } from 'framer-motion'
+import { useLocation } from 'react-router'
 import ProjectCard from './ProjectCard'
 
 const projectList = [
@@ -83,7 +84,36 @@ const projectList = [
 
 ]
 
+const slugifyProjectTitle = (title = '') =>
+    title
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-');
+
 const ProjectPage = () => {
+    const location = useLocation();
+
+    const selectedProjectSlug = useMemo(() => {
+        const params = new URLSearchParams(location.search);
+        const selectedProject = params.get('project');
+
+        if (!selectedProject) return null;
+
+        return slugifyProjectTitle(selectedProject);
+    }, [location.search]);
+
+    useEffect(() => {
+        if (!selectedProjectSlug) return;
+
+        const targetElement = document.getElementById(`project-${selectedProjectSlug}`);
+
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }, [selectedProjectSlug]);
+
     return (
 
         <motion.div
@@ -95,7 +125,11 @@ const ProjectPage = () => {
             <div>
                 <h3 className='text-2xl font-extrabold flex justify-center items-center text-gray-50 dark:text-gray-900 '>What I've Built</h3>
                 {projectList.map((project, index) => (
-                    <ProjectCard key={index} project={project} />
+                    <ProjectCard
+                        key={index}
+                        project={project}
+                        cardId={`project-${slugifyProjectTitle(project.title)}`}
+                    />
                 ))}
             </div>
         </motion.div>

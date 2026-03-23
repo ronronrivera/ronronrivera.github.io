@@ -3,11 +3,11 @@ import { FiExternalLink } from "react-icons/fi";
 import SuspensionInfoCard from './Suspended';
 
 
-const ProjectCard = ({project}) => {
+const ProjectCard = ({ project, cardId }) => {
     const isVideo = project.imgSrc?.endsWith('.mp4') || project.imgSrc?.endsWith('.webm');
 
     return (
-        <div className='my-10 relative'>
+        <div id={cardId} className='my-10 relative'>
             <Card
                 className="max-w-lg transition duration-300 ease-in-out hover:shadow-2xl"
                 imgAlt="Meaningful alt text for an image that is not purely decorative"

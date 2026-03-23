@@ -213,7 +213,10 @@ export default function Carousel({
       {/* Text + link */}
       <div className="relative z-20 h-full flex flex-col justify-end p-6">
     
-        <Link to="/projects" className={`text-2xl font-bold ${item.image? "text-white" : "dark:text-gray-900 text-white"} mb-2 hover:underline`}>
+        <Link
+          to={`/projects?project=${encodeURIComponent(item.title)}`}
+          className={`text-2xl font-bold ${item.image ? "text-white" : "dark:text-gray-900 text-white"} mb-2 hover:underline`}
+        >
           {item.title}
         </Link>
         
