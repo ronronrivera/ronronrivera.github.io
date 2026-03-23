@@ -1,7 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
-import ChatApp from "../assets/project-images/chat-app.png"
-import Commerce from "../assets/project-images/commerce.jpg"
 import { Link } from 'react-router';
 
 
@@ -15,10 +13,10 @@ const DEFAULT_ITEMS = [
     link: "#"
   },
   {
-    title: 'E-commerce Store',
-    description: 'A full-featured e-commerce web app I developed using the MERN stack (MongoDB, Express, React, and Node.js).',
+    title: 'Zombie Horde',
+    description: 'ZombieHorde is an open source first-person zombie survival shooter built from scratch in C++17 and OpenGL 3.3 — no engine, no shortcuts. Survive endless waves of the undead in a dark warehouse armed with nothing but a flashlight and your aim.',
     id: 2,
-    image: Commerce,
+    image: "project-images/zombie-horde-pic.png",
     link: "#",
   },
   {

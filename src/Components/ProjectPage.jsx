@@ -4,6 +4,16 @@ import { motion } from 'framer-motion'
 import ProjectCard from './ProjectCard'
 
 const projectList = [
+    {
+        title: "Zombie Horde",
+        paragraph: "ZombieHorde is an open source first-person zombie survival shooter written entirely in C++17 with OpenGL 3.3 Core — no game engine, no black boxes, just raw code and mathematics. Set in a pitch-black warehouse lit only by your flashlight, you face endless waves of zombies that grow larger and more relentless with every round. The project is built from the ground up with a fully custom renderer, Phong lighting with a dynamic spotlight, skeletal hand animations loaded via Assimp, a tile-based map system, AABB collision, and a wave spawner — all running smoothly on modest hardware. Whether you're here to play or to learn, every system in the codebase is written to be readable, layered, and open. ",
+        link: "#",
+        imgSrc: "/project-images/zombie-horde.mp4",
+        source: "https://github.com/ronronrivera/Zombie-Horde" ,
+        hasUrl: false,
+        isSuspended: false,
+        inDevelopment: true, 
+    },
 
     {
         title: "Case Forge",
@@ -14,6 +24,17 @@ const projectList = [
         hasUrl: true,
         isSuspended: false,
         inDevelopment: false, 
+    },
+
+    {
+        title: "Personal Neovim Setup",
+        paragraph: "I developed a personal Neovim setup designed for speed, efficiency, and a smooth coding experience. It includes tools for code completion, syntax highlighting, project navigation, file exploration, emoji picking, and auto-closing brackets and quotes. The setup integrates popular plugins like Treesitter for advanced syntax parsing, Telescope for fuzzy file searching, Neo-tree for file management, and Mason for LSP server management, along with smaller dependencies that enhance functionality, such as icons, snippets, and color previews. By using a lightweight, modular structure with lazy.nvim for plugin management, the configuration loads only what’s necessary, reducing RAM usage while keeping Neovim responsive. This setup is fully customizable, allowing me to add or update plugins easily while maintaining a fast, organized, and feature-rich coding environment.",
+        imgSrc: "/project-images/nvim.png",
+        link: "#",
+        source: "https://github.com/ronronrivera/neovim-setup",
+        hasUrl: false,
+        isSuspended: false,
+        inDevelopment: false
     },
 
     {
@@ -58,16 +79,7 @@ const projectList = [
         isSuspended: false,
         inDevelopment: false,
     },
-    {
-        title: "Personal Neovim Setup",
-        paragraph: "I developed a personal Neovim setup designed for speed, efficiency, and a smooth coding experience. It includes tools for code completion, syntax highlighting, project navigation, file exploration, emoji picking, and auto-closing brackets and quotes. The setup integrates popular plugins like Treesitter for advanced syntax parsing, Telescope for fuzzy file searching, Neo-tree for file management, and Mason for LSP server management, along with smaller dependencies that enhance functionality, such as icons, snippets, and color previews. By using a lightweight, modular structure with lazy.nvim for plugin management, the configuration loads only what’s necessary, reducing RAM usage while keeping Neovim responsive. This setup is fully customizable, allowing me to add or update plugins easily while maintaining a fast, organized, and feature-rich coding environment.",
-        imgSrc: "/project-images/nvim.png",
-        link: "#",
-        source: "https://github.com/ronronrivera/neovim-setup",
-        hasUrl: false,
-        isSuspended: false,
-        inDevelopment: false
-    },
+
 
 ]
 

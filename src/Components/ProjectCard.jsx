@@ -4,15 +4,26 @@ import SuspensionInfoCard from './Suspended';
 
 
 const ProjectCard = ({project}) => {
+    const isVideo = project.imgSrc?.endsWith('.mp4') || project.imgSrc?.endsWith('.webm');
 
     return (
-        <div className='my-10'>
+        <div className='my-10 relative'>
             <Card
                 className="max-w-lg transition duration-300 ease-in-out hover:shadow-2xl"
                 imgAlt="Meaningful alt text for an image that is not purely decorative"
-                imgSrc={project.imgSrc}
+                imgSrc={!isVideo ? project.imgSrc : undefined}
             >
-                <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                {isVideo && (
+                    <video
+                        src={project.imgSrc}
+                        autoPlay
+                        muted
+                        loop
+                        className="absolute top-0 left-0 w-full rounded-t-lg object-cover border border-gray-200 dark:border-gray-700"
+                        style={{ height: '200px' }}
+                    />
+                )}
+                <h5 className={`text-2xl font-bold tracking-tight text-gray-900 dark:text-white ${isVideo ? 'mt-52' : ''}`}>
                     {project.title}
                 </h5>
                 <p className="font-normal text-gray-700 dark:text-gray-400">
