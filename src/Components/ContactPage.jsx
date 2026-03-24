@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion as Motion } from "framer-motion";
 import { axiosInstance } from "../lib/axios";
-import { Loader2Icon } from "lucide-react";
 import toast, { CheckmarkIcon } from "react-hot-toast";
 
 const ContactPage = () => {
@@ -69,7 +68,7 @@ const ContactPage = () => {
             ):
             loading? (
                <div className='flex items-center justify-center'>
-                    <Loader2Icon className='size-10 animate-spin text-4xl text-white'/>
+                    <p className='text-sm font-bold uppercase tracking-wider text-neutral-300 animate-pulse'>Sending...</p>
                 </div> 
             ):
             (                
