@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { Mail, Phone } from "lucide-react";
 
 const WhatICanDo = () => {
@@ -47,7 +47,7 @@ const WhatICanDo = () => {
   ];
 
   return (
-    <motion.div
+    <Motion.div
       className="w-full max-w-2xl sm:w-[600px] p-6 rounded-2xl shadow-xl"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -99,7 +99,7 @@ const WhatICanDo = () => {
           <span className="text-blue-400 font-semibold">Let’s build something that stands out.</span> I’m dedicated to writing clean code, solving complex problems, and delivering results that align with your business goals.
         </p>
       </div>
-    </motion.div>
+    </Motion.div>
   );
 };
 

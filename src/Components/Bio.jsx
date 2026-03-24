@@ -1,9 +1,9 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 
 const Bio = () => {
   return (
-    <motion.div
+    <Motion.div
       className="w-full max-w-2xl sm:w-[600px] mt-10 p-6 rounded-2xl shadow-xl"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -57,7 +57,7 @@ const Bio = () => {
           <span>{" "}</span>This mindset drives every project I take on.
         </p>
       </div>
-    </motion.div>
+    </Motion.div>
   );
 };
 

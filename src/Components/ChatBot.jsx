@@ -1,16 +1,22 @@
-import React, { useRef, useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion as Motion } from "framer-motion";
 import { BotIcon } from "./ChatBotIcon";
 import { axiosInstance } from "../lib/axios.js";
 
 function ChatBot() {
-  const [chatHistory, setChatHistory] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
+  const [chatHistory, setChatHistory] = useState([
+    {
+      role: "model",
+      text: "Hi, I am Nor. Ask me anything about Ron's projects, stack, or availability.",
+    },
+  ]);
   const [isLoading, setIsLoading] = useState(false);
 
   const inputRef = useRef(null);
   const chatBodyRef = useRef(null);
 
-  /* -------------------- Render Text (Safe Links) -------------------- */
-  const renderTextWithHTML = (text) => {
+  const renderTextWithLinks = (text) => {
     if (!text) return text;
 
     const linkRegex = /(https?:\/\/[^\s]+)/g;
@@ -23,154 +29,132 @@ function ChatBot() {
             href={part}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-400 underline hover:text-blue-300"
-            onClick={(e) => e.stopPropagation()}
+            className="text-neutral-100 underline"
           >
             {part}
           </a>
         );
       }
+
       return part;
     });
   };
 
-  /* -------------------- Bot Response -------------------- */
   const generateBotResponse = async (history) => {
     try {
       setIsLoading(true);
-
       const response = await axiosInstance.post("/chat", {
         message: history,
       });
 
-      const apiResponseText =
-        response.data?.reply ||
-        "Hmm... I couldn't generate a response.";
+      const apiResponseText = response.data?.reply || "I could not generate a response right now.";
 
-      setChatHistory((prev) => [
-        ...prev,
-        { role: "model", text: apiResponseText.trim() },
-      ]);
+      setChatHistory((prev) => [...prev, { role: "model", text: apiResponseText.trim() }]);
     } catch (error) {
       console.error(error);
-
-      setChatHistory((prev) => [
-        ...prev,
-        { role: "model", text: "Failed to connect to Gemini API." },
-      ]);
+      setChatHistory((prev) => [...prev, { role: "model", text: "I cannot connect to the API at the moment." }]);
     } finally {
       setIsLoading(false);
     }
   };
 
-  /* -------------------- Submit Handler -------------------- */
   const handleSubmit = () => {
     if (isLoading) return;
 
-    const userMessage = inputRef.current.value.trim();
+    const userMessage = inputRef.current?.value.trim();
     if (!userMessage) return;
 
     inputRef.current.value = "";
 
-    const newHistory = [
-      ...chatHistory,
-      { role: "user", text: userMessage },
-    ];
-
+    const newHistory = [...chatHistory, { role: "user", text: userMessage }];
     setChatHistory(newHistory);
     generateBotResponse(newHistory);
   };
 
-  /* -------------------- Auto Scroll -------------------- */
   useEffect(() => {
-    if (chatBodyRef.current) {
-      chatBodyRef.current.scrollTo({
-        top: chatBodyRef.current.scrollHeight,
-        behavior: "smooth",
-      });
+    if (isOpen && chatBodyRef.current) {
+      chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight;
     }
-  }, [chatHistory, isLoading]);
+  }, [chatHistory, isLoading, isOpen]);
 
   return (
-    <div className="flex justify-center my-10">
-      <div className="w-full max-w-2xl">
-        {/* HEADER */}
-        <div className="flex items-center space-x-2 mb-4">
-          <BotIcon className="w-6 h-6 text-blue-600" />
-          <h2 className="text-lg font-semibold uppercase">
-            Ask Nor About Me
-          </h2>
-        </div>
-
-        {/* MESSAGE AREA */}
-        <div
-          ref={chatBodyRef}
-          className="h-64 overflow-y-auto border border-white dark:border-gray-900 rounded-lg p-3 mb-3"
-        >
-          {/* Initial Greeting */}
-          <div className="my-2 flex justify-start">
-            <div className="px-3 py-2 rounded-lg text-sm bg-gray-700 dark:bg-gray-200">
-              Hello! 👋 My Name is Nor and I'm Ron-ron Rivera's assistant.
-              Ask me anything about him.
-            </div>
-          </div>
-
-          {/* Chat Messages */}
-          {chatHistory.map((msg, i) => (
-            <div
-              key={i}
-              className={`my-2 flex ${
-                msg.role === "user"
-                  ? "justify-end"
-                  : "justify-start"
-              }`}
-            >
-              <div
-                className={`px-3 py-2 rounded-lg text-sm ${
-                  msg.role === "user"
-                    ? "bg-blue-500 text-white"
-                    : "bg-gray-700 dark:bg-gray-200 dark:text-black"
-                }`}
-              >
-                {msg.role === "model"
-                  ? renderTextWithHTML(msg.text)
-                  : msg.text}
-              </div>
-            </div>
-          ))}
-
-          {/* Loading Indicator */}
-          {isLoading && (
-            <div className="my-2 flex justify-start">
-              <div className="px-3 py-2 rounded-lg text-sm bg-gray-700 dark:bg-gray-200 dark:text-black animate-pulse">
-                Thinking...
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* INPUT */}
-        <div className="flex">
-          <input
-            type="text"
-            ref={inputRef}
-            disabled={isLoading}
-            placeholder="Ask anything..."
-            className="flex-1 px-3 py-2 rounded-l-lg border border-white dark:border-gray-900 placeholder:text-gray-700 dark:bg-white text-black focus:outline-none disabled:opacity-50"
-            onKeyDown={(e) =>
-              e.key === "Enter" && handleSubmit()
-            }
-          />
-
-          <button
-            onClick={handleSubmit}
-            disabled={isLoading}
-            className="px-4 py-2 bg-blue-500 text-white rounded-r-lg hover:bg-blue-600 active:bg-blue-700 transition disabled:bg-gray-400 disabled:cursor-not-allowed"
+    <div className="fixed bottom-6 right-4 z-[130] sm:bottom-8 sm:right-8">
+      <AnimatePresence>
+        {isOpen ? (
+          <Motion.div
+            initial={{ opacity: 0, y: 12, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 12, scale: 0.98 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="mb-4 w-[calc(100vw-2rem)] max-w-sm rounded-2xl border border-neutral-700 bg-neutral-950 shadow-[0_18px_50px_rgba(0,0,0,0.55)]"
           >
-            Send
-          </button>
-        </div>
-      </div>
+            <div className="flex items-center justify-between border-b border-neutral-800 px-4 py-3">
+              <p className="text-sm font-extrabold uppercase tracking-wide text-white">Nor AI Assistant</p>
+              <button
+                type="button"
+                onClick={() => setIsOpen(false)}
+                className="text-sm font-bold uppercase tracking-wide text-neutral-300 transition hover:text-white"
+              >
+                Close
+              </button>
+            </div>
+
+            <div ref={chatBodyRef} className="h-72 space-y-3 overflow-y-auto px-4 py-4">
+              {chatHistory.map((msg, index) => (
+                <div key={index} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
+                  <div
+                    className={`max-w-[85%] rounded-2xl px-3 py-2 text-sm leading-6 ${
+                      msg.role === "user"
+                        ? "bg-white text-black"
+                        : "border border-neutral-700 bg-black text-neutral-100"
+                    }`}
+                  >
+                    {msg.role === "model" ? renderTextWithLinks(msg.text) : msg.text}
+                  </div>
+                </div>
+              ))}
+
+              {isLoading ? (
+                <div className="flex justify-start">
+                  <div className="rounded-2xl border border-neutral-700 bg-black px-3 py-2 text-sm text-neutral-200">
+                    Thinking...
+                  </div>
+                </div>
+              ) : null}
+            </div>
+
+            <div className="border-t border-neutral-800 px-4 py-3">
+              <div className="flex items-center gap-2">
+                <input
+                  type="text"
+                  ref={inputRef}
+                  disabled={isLoading}
+                  placeholder="Ask about projects, stack, or experience"
+                  className="w-full rounded-full border border-neutral-700 bg-black px-4 py-2 text-sm text-white placeholder:text-neutral-500 focus:border-neutral-500 focus:outline-none disabled:opacity-50"
+                  onKeyDown={(event) => event.key === "Enter" && handleSubmit()}
+                />
+                <button
+                  type="button"
+                  onClick={handleSubmit}
+                  disabled={isLoading}
+                  className="rounded-full bg-white px-4 py-2 text-sm font-extrabold uppercase tracking-wide text-black transition hover:bg-neutral-200 disabled:opacity-50"
+                >
+                  Send
+                </button>
+              </div>
+            </div>
+          </Motion.div>
+        ) : null}
+      </AnimatePresence>
+
+      <button
+        type="button"
+        onClick={() => setIsOpen((prev) => !prev)}
+        className="flex h-16 w-16 items-center justify-center rounded-full border border-neutral-700 bg-white text-black shadow-[0_18px_40px_rgba(0,0,0,0.55)] transition hover:scale-[1.03]"
+        aria-label="Toggle chat assistant"
+      >
+        <BotIcon className="h-9 w-9" />
+      </button>
     </div>
   );
 }

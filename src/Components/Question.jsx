@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion as Motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
 const Question = ({ question, answer, index }) => {
@@ -21,19 +21,19 @@ const Question = ({ question, answer, index }) => {
           </span>
         </div>
 
-        <motion.div
+        <Motion.div
           animate={{ rotate: open ? 180 : 0 }}
           transition={{ duration: 0.3 }}
           className="flex-shrink-0 ml-2"
         >
           <ChevronDown className="h-5 w-5 text-gray-400 dark:text-gray-600" />
-        </motion.div>
+        </Motion.div>
       </button>
 
       {/* Answer (Animated) */}
       <AnimatePresence initial={false}>
         {open && (
-          <motion.div
+          <Motion.div
             key="content"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
@@ -44,7 +44,7 @@ const Question = ({ question, answer, index }) => {
             <p className="ml-7 mt-2 text-xs sm:text-sm text-gray-300 dark:text-gray-700 leading-relaxed">
               {answer}
             </p>
-          </motion.div>
+          </Motion.div>
         )}
       </AnimatePresence>
     </div>

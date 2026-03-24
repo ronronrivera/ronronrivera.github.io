@@ -1,255 +1,224 @@
-import { useEffect, useState, useRef } from 'react';
-import { motion, useMotionValue, useTransform } from 'framer-motion';
-import { Link } from 'react-router';
+import { useEffect, useMemo, useState } from "react";
+import { motion as Motion, AnimatePresence } from "framer-motion";
+import { X, ExternalLink, Github } from "lucide-react";
+import { PROJECTS } from "../data/projects.js";
 
+const isVideoMedia = (source = "") => source.endsWith(".mp4") || source.endsWith(".webm");
 
-
-const DEFAULT_ITEMS = [
-  {
-    title: 'Case Forge',
-    description: "Caseforge is a SaaS platform that transforms a freelancer's rough project notes into a professionally designed, client-ready case study — in under a minute. Powered by Gemini AI and a credit-based generation system.",
-    id: 1,
-    image:"project-images/case-forge.png",
-    link: "#"
-  },
-  {
-    title: 'Zombie Horde',
-    description: 'ZombieHorde is an open source first-person zombie survival shooter built from scratch in C++17 and OpenGL 3.3 — no engine, no shortcuts. Survive endless waves of the undead in a dark warehouse armed with nothing but a flashlight and your aim.',
-    id: 2,
-    image: "project-images/zombie-horde-pic.png",
-    link: "#",
-  },
-  {
-    title: 'Recruify',
-    description: 'A SaaS hiring platform I built using the MERN stack (MongoDB, Express, React, and Node.js). ',
-    id: 3,
-    image: "project-images/hiring-platform.png",
-    link: "#",
-  },
-  {
-    title: 'Interview Platform',
-    description: 'A live coding interview platform to host remote technical interviews with real-time video, chat, collaborative code editing and code execution.',
-    id: 4,
-    image: "project-images/interview-platform.jpeg",
-    link: "#",
-  },
-
-  {
-    title: 'Personal Neovim Setup',
-    description: 'built a fast, efficient Neovim setup with code completion, navigation, and lightweight plugins that keep coding smooth and low on RAM.',
-    id: 5,
-    image: "project-images/nvim.png",
-    link: "#",
-  },
-
-
-
-];
-
-const DRAG_BUFFER = 0;
-const VELOCITY_THRESHOLD = 500;
-const GAP = 16;
-const SPRING_OPTIONS = { type: 'spring', stiffness: 300, damping: 30 };
-
-export default function Carousel({
-  items = DEFAULT_ITEMS,
-  baseWidth = 300,
-  autoplay = false,
-  autoplayDelay = 3000,
-  pauseOnHover = false,
-  loop = false,
-  round = false
-}) {
-  const containerRef = useRef(null); 
-  const [containerWidth, setContainerWidth] = useState(baseWidth);
-
+function ProjectModal({ project, onClose }) {
   useEffect(() => {
-    const handleResize = () => {
-      if (containerRef.current) {
-        const width = containerRef.current.offsetWidth;
-        setContainerWidth(width);
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        onClose();
       }
     };
 
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-    }, []);
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleEscape);
 
-  const containerPadding = 16;
-  const itemWidth = Math.min(containerWidth, baseWidth) - containerPadding * 2;
-  const trackItemOffset = itemWidth + GAP;
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, [onClose]);
 
-  const carouselItems = loop ? [...items, items[0]] : items;
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const x = useMotionValue(0);
-  const [isHovered, setIsHovered] = useState(false);
-  const [isResetting, setIsResetting] = useState(false);
-
-  useEffect(() => {
-    if (pauseOnHover && containerRef.current) {
-      const container = containerRef.current;
-      const handleMouseEnter = () => setIsHovered(true);
-      const handleMouseLeave = () => setIsHovered(false);
-      container.addEventListener('mouseenter', handleMouseEnter);
-      container.addEventListener('mouseleave', handleMouseLeave);
-      return () => {
-        container.removeEventListener('mouseenter', handleMouseEnter);
-        container.removeEventListener('mouseleave', handleMouseLeave);
-      };
-    }
-  }, [pauseOnHover]);
-
-
- useEffect(() => {
-    if (autoplay && (!pauseOnHover || !isHovered)) {
-      const timer = setInterval(() => {
-        setCurrentIndex(prev => {
-          if (prev === items.length - 1 && loop) {
-            return prev + 1;
-          }
-          if (prev === carouselItems.length - 1) {
-            return loop ? 0 : prev;
-          }
-          return prev + 1;
-        });
-      }, autoplayDelay);
-      return () => clearInterval(timer);
-    }
-  }, [autoplay, autoplayDelay, isHovered, loop, items.length, carouselItems.length, pauseOnHover]);
-
-  const effectiveTransition = isResetting ? { duration: 0 } : SPRING_OPTIONS;
-
-  const handleAnimationComplete = () => {
-    if (loop && currentIndex === carouselItems.length - 1) {
-      setIsResetting(true);
-      x.set(0);
-      setCurrentIndex(0);
-      setTimeout(() => setIsResetting(false), 50);
-    }
-  };
-
-  const handleDragEnd = (_, info) => {
-    const offset = info.offset.x;
-    const velocity = info.velocity.x;
-    if (offset < -DRAG_BUFFER || velocity < -VELOCITY_THRESHOLD) {
-      if (loop && currentIndex === items.length - 1) {
-        setCurrentIndex(currentIndex + 1);
-      } else {
-        setCurrentIndex(prev => Math.min(prev + 1, carouselItems.length - 1));
-      }
-    } else if (offset > DRAG_BUFFER || velocity > VELOCITY_THRESHOLD) {
-      if (loop && currentIndex === 0) {
-        setCurrentIndex(items.length - 1);
-      } else {
-        setCurrentIndex(prev => Math.max(prev - 1, 0));
-      }
-    }
-  };
-
-  const dragProps = loop
-    ? {}
-    : {
-        dragConstraints: {
-          left: -trackItemOffset * (carouselItems.length - 1),
-          right: 0
-        }
-      };
+  if (!project) return null;
 
   return (
-    <div
-      ref={containerRef}
-      className={`relative overflow-hidden p-4 ${
-        round ? 'rounded-full border border-gray-900 dark:border-white' : ' rounded-[24px] border border-white dark:border-gray-900'
-      }`}
-      style={{
-        width: `100%`,
-        maxWidth: `${baseWidth}px`,
-        ...(round && { height: `${baseWidth}px` })
-      }}
-    >
-      <motion.div
-        className="flex"
-        drag="x"
-        {...dragProps}
-        style={{
-          width: 'max-content',
-          gap: `${GAP}px`,
-          perspective: 1000,
-          perspectiveOrigin: `${currentIndex * trackItemOffset + itemWidth / 2}px 50%`,
-          x
-        }}
-        onDragEnd={handleDragEnd}
-        animate={{ x: -(currentIndex * trackItemOffset) }}
-        transition={effectiveTransition}
-        onAnimationComplete={handleAnimationComplete}
+    <AnimatePresence>
+      <Motion.div
+        className="fixed inset-0 z-[120] flex items-center justify-center bg-black/75 px-4 py-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={onClose}
       >
+        <Motion.div
+          className="w-full max-w-3xl rounded-2xl border border-neutral-700 bg-neutral-950 p-6 shadow-[0_18px_50px_rgba(0,0,0,0.55)] sm:p-8"
+          initial={{ scale: 0.95, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.98, opacity: 0 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
+          onClick={(event) => event.stopPropagation()}
+        >
+          <div className="mb-6 flex items-start justify-between gap-4">
+            <div className="space-y-2">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-neutral-400">
+                Project Details
+              </p>
+              <h3 className="text-3xl font-black text-white">{project.title}</h3>
+              <p className="text-base leading-7 text-neutral-300">{project.summary}</p>
+            </div>
+            <button
+              type="button"
+              onClick={onClose}
+              className="rounded-full border border-neutral-700 p-2 text-neutral-200 transition hover:border-neutral-500 hover:text-white"
+              aria-label="Close project details"
+            >
+              <X className="h-5 w-5" />
+            </button>
+          </div>
 
-{carouselItems.map((item, index) => {
-  const range = [-(index + 1) * trackItemOffset, -index * trackItemOffset, -(index - 1) * trackItemOffset];
-  const outputRange = [90, 0, -90];
-  const rotateY = useTransform(x, range, outputRange, { clamp: false });
+          <div className="mb-6 overflow-hidden rounded-xl border border-neutral-800 bg-black">
+            {isVideoMedia(project.image) ? (
+              <video
+                src={project.image}
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls
+                className="h-56 w-full object-cover"
+              />
+            ) : (
+              <img
+                src={project.image}
+                alt={project.title}
+                className="h-56 w-full object-cover"
+              />
+            )}
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="space-y-3 rounded-xl border border-neutral-800 bg-neutral-900/60 p-4">
+              <h4 className="text-lg font-bold text-white">What I Built</h4>
+              <p className="text-sm leading-7 text-neutral-300">{project.whatBuilt}</p>
+            </div>
+
+            <div className="space-y-3 rounded-xl border border-neutral-800 bg-neutral-900/60 p-4">
+              <h4 className="text-lg font-bold text-white">Result</h4>
+              <p className="text-sm leading-7 text-neutral-300">{project.result}</p>
+            </div>
+          </div>
+
+          <div className="mt-6 space-y-3 rounded-xl border border-neutral-800 bg-neutral-900/60 p-4">
+            <h4 className="text-lg font-bold text-white">Tech Stack</h4>
+            <div className="flex flex-wrap gap-2">
+              {project.techStack.map((tech) => (
+                <span
+                  key={tech}
+                  className="rounded-full border border-neutral-700 bg-black px-3 py-1 text-xs font-semibold text-neutral-200"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-6 flex flex-wrap gap-3">
+            {project.liveUrl ? (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-bold text-black transition hover:bg-neutral-200"
+              >
+                <ExternalLink className="h-4 w-4" />
+                Live Demo
+              </a>
+            ) : null}
+
+            {project.sourceUrl ? (
+              <a
+                href={project.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-neutral-600 px-5 py-3 text-sm font-bold text-white transition hover:border-neutral-400"
+              >
+                <Github className="h-4 w-4" />
+                Source Code
+              </a>
+            ) : null}
+          </div>
+        </Motion.div>
+      </Motion.div>
+    </AnimatePresence>
+  );
+}
+
+export default function Projects() {
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const orderedProjects = useMemo(() => PROJECTS.slice(0, 9), []);
 
   return (
-    <motion.div
-  key={index}
-  className="relative shrink-0 p-0 cursor-grab active:cursor-grabbing overflow-hidden rounded-lg bg-transparent border border-white/20"
-  style={{
-    width: itemWidth,
-    height: 300,
-    rotateY: rotateY,
-  }}
-  transition={effectiveTransition}
-    >
-  {item.image && (
-    <img
-      src={item.image}
-      alt={item.title}
-      className="absolute inset-0 w-full h-full object-cover z-0 rounded-lg"
-    />
-  )}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
+    <section id="projects" className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+      <div className="mb-8 space-y-4 sm:mb-10">
+        <h2 className="text-3xl font-black leading-tight text-white sm:text-4xl lg:text-5xl">
+          Built for Real Users, Not Just Demos
+        </h2>
+        <p className="max-w-3xl text-base leading-7 text-neutral-300 sm:text-lg">
+          Every project below includes what I built, the tech stack I used, and the result it produced.
+        </p>
+      </div>
 
-      {/* Text + link */}
-      <div className="relative z-20 h-full flex flex-col justify-end p-6">
-    
-        <Link
-          to={`/projects?project=${encodeURIComponent(item.title)}`}
-          className={`text-2xl font-bold ${item.image ? "text-white" : "dark:text-gray-900 text-white"} mb-2 hover:underline`}
-        >
-          {item.title}
-        </Link>
-        
-      
-        <p className={`text-sm font-bold ${item.image? "text-white" : "dark:text-gray-900 text-white"} mb-2`}>{item.description}</p>
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {orderedProjects.map((project) => (
+          <article
+            key={project.id}
+            className="group flex h-full flex-col rounded-2xl border border-neutral-800 bg-neutral-900/60 p-5 shadow-[0_14px_34px_rgba(0,0,0,0.45)] transition duration-300 hover:-translate-y-1 hover:border-neutral-600"
+          >
+            <div className="mb-4 overflow-hidden rounded-xl border border-neutral-800 bg-black">
+              {isVideoMedia(project.image) ? (
+                <video
+                  src={project.image}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="h-44 w-full object-cover opacity-90 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
+                />
+              ) : (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="h-44 w-full object-cover opacity-90 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
+                />
+              )}
+            </div>
+
+            <div className="mb-4 space-y-3">
+              <h3 className="text-2xl font-black text-white">{project.title}</h3>
+              <p className="text-sm leading-7 text-neutral-300">{project.summary}</p>
+            </div>
+
+            <div className="mb-5 flex flex-wrap gap-2">
+              {project.techStack.slice(0, 4).map((tech) => (
+                <span
+                  key={tech}
+                  className="rounded-full border border-neutral-700 bg-black px-3 py-1 text-xs font-semibold uppercase tracking-wide text-neutral-200"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-auto flex items-center justify-between gap-2">
+              <button
+                type="button"
+                onClick={() => setSelectedProject(project)}
+                className="rounded-full bg-white px-4 py-2 text-sm font-extrabold text-black transition hover:bg-neutral-200"
+              >
+                Details
+              </button>
+
+              {project.inDevelopment ? (
+                <span className="rounded-full border border-amber-700 bg-amber-950/60 px-3 py-2 text-xs font-bold uppercase tracking-wide text-amber-200">
+                  In Development
+                </span>
+              ) : (
+                <span className="rounded-full border border-emerald-700 bg-emerald-950/50 px-3 py-2 text-xs font-bold uppercase tracking-wide text-emerald-200">
+                  Production
+                </span>
+              )}
+            </div>
+          </article>
+        ))}
       </div>
-   </motion.div>
-  );
-})}
-      </motion.div>
-      <div className={`flex w-full justify-center ${round ? 'absolute z-20 bottom-12 left-1/2 -translate-x-1/2' : ''}`}>
-        <div className="mt-4 flex w-[150px] justify-between px-8">
-          {items.map((_, index) => (
-            <motion.div
-              key={index}
-              className={`h-2 w-2 rounded-full cursor-pointer transition-colors duration-150 ${
-                currentIndex % items.length === index
-                  ? round
-                    ? 'bg-white'
-                    : 'bg-[#333333]'
-                  : round
-                    ? 'bg-[#555]'
-                    : 'bg-[rgba(51,51,51,0.4)]'
-              }`}
-              animate={{
-                scale: currentIndex % items.length === index ? 1.2 : 1
-              }}
-              onClick={() => setCurrentIndex(index)}
-              transition={{ duration: 0.15 }}
-            />
-          ))}
-        </div>
-      </div>
-    </div>
+
+      {selectedProject ? (
+        <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+      ) : null}
+    </section>
   );
 }

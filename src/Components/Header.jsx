@@ -1,41 +1,11 @@
-import { useEffect, useState } from "react";
-import {Link} from "react-router";
-
-function Header() {
-
-    const minWidht = 450;
-     
-    const [isSmall, setIsSmall] = useState(false);
-
-    useEffect(() =>{
-
-        function handleResize(){
-            setIsSmall(window.innerWidth <= minWidht);
-        }
-
-        window.addEventListener("resize", handleResize);
-        
-        return () => window.removeEventListener("resize", handleResize)
-
-    }, [minWidht])
-
-    return (
-        <>
-            <div className="flex justify-center">
-                <div className="flex items-center justify-between w-full max-w-2xl my-5">
-                    <Link to="/" className="text-xl font-bold mr-14">RON</Link> 
-                    <div className="flex items-center text-sm gap-3">
-                        <Link to="/projects">projects</Link>
-                        <Link to="/about-me">{isSmall? 
-                            (<span>me</span>)
-                            :
-                            (<span>about me</span>)}</Link>
-                        <a href="https://drive.google.com/file/d/1qytfzLDfg7WnHbGxYP_Zdjy_iV-lBih0/view?usp=sharing" target="_blank">resume</a>
-                    </div>
-                </div>
-            </div>
-        </>
-    );
+export default function Header() {
+  return (
+    <header className="fixed left-0 right-0 top-0 z-50 border-b border-neutral-800 bg-black/90 backdrop-blur-sm">
+      <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <span className="text-xl font-black tracking-wider text-white">
+          RON RIVERA
+        </span>
+      </div>
+    </header>
+  );
 }
-
-export default Header;

@@ -1,8 +1,8 @@
-import {useState, useRef, useEffect} from 'react'
-import { motion } from 'framer-motion'
-import { axiosInstance } from '../lib/axios'
-import {  Loader2, Loader2Icon } from 'lucide-react'
-import toast, { CheckmarkIcon } from "react-hot-toast"
+import { useState, useRef, useEffect } from "react";
+import { motion as Motion } from "framer-motion";
+import { axiosInstance } from "../lib/axios";
+import { Loader2Icon } from "lucide-react";
+import toast, { CheckmarkIcon } from "react-hot-toast";
 
 const ContactPage = () => {
 
@@ -32,7 +32,7 @@ const ContactPage = () => {
 
     const handleSubmit = async (e) =>{
         e.preventDefault();
-        setLoading(true)
+        setLoading(true);
         try{
             await axiosInstance.post("/send", contactForm);
             setSent(true);
@@ -48,7 +48,7 @@ const ContactPage = () => {
 
         }
         catch(error){
-            toast.error(error.response.data.message || "Unable to sent a message");
+            toast.error(error.response?.data?.message || "Unable to send message.");
         }
         finally{
             setLoading(false);
@@ -56,26 +56,26 @@ const ContactPage = () => {
     }
 
     return (
-        <motion.div 
-            className='border border-gray-50 dark:border-gray-900 shadow-lg rounded-lg p-8 mb-8 max-w-2xl mx-auto min-h-[400px] flex flex-col justify-center'
+        <Motion.div 
+            className='rounded-2xl border border-neutral-800 bg-neutral-900/60 p-6 shadow-[0_14px_34px_rgba(0,0,0,0.45)] sm:p-8'
             initial={{opacity: 0, y: 20}}
             animate={{opacity: 1, y: 0}}
-            transition={{duration: 0.8}}>
+            transition={{duration: 0.35, ease: "easeOut"}}>
             {sent? (
                 <div className='flex justify-center items-center'>
-                    <CheckmarkIcon className='size-4 mr-2'/>
-                    <h2 className='text-2xl dark:text-gray-900 text-white text-center font-extrabold'> Message sent, I'll get back to you</h2>
+                    <CheckmarkIcon className='mr-2 size-4'/>
+                    <h2 className='text-center text-xl font-extrabold text-white sm:text-2xl'>Message sent. I will get back to you soon.</h2>
                 </div>
             ):
             loading? (
-               <div className='flex justify-center items-center'>
-                    <Loader2Icon className='animate-spin text-4xl size-10'/>
+               <div className='flex items-center justify-center'>
+                    <Loader2Icon className='size-10 animate-spin text-4xl text-white'/>
                 </div> 
             ):
             (                
-                <form onSubmit={handleSubmit} className='space-y-2'>
+                <form onSubmit={handleSubmit} className='space-y-4'>
                     <div>
-                        <label htmlFor='name' className='block text-sm font-medium text-gray-50 dark:text-gray-900 '>
+                        <label htmlFor='name' className='block text-sm font-bold uppercase tracking-wide text-neutral-300'>
                             Name
                         </label>
                         <input
@@ -85,13 +85,11 @@ const ContactPage = () => {
                             value={contactForm.name}
                             onChange={(e) => setContactForm({...contactForm, name: e.target.value})}
                             placeholder='John Doe'
-                            className='mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2
-                            px-3 text-white focus:outline-none focus:ring-2
-                            '
+                            className='mt-2 block w-full rounded-lg border border-neutral-700 bg-black px-4 py-3 text-white placeholder:text-neutral-500 focus:border-neutral-500 focus:outline-none'
                         />
                     </div>
                     <div>
-                        <label htmlFor='email' className='block text-sm font-medium text-gray-50 dark:text-gray-900'>
+                        <label htmlFor='email' className='block text-sm font-bold uppercase tracking-wide text-neutral-300'>
                             Email
                         </label>
                         <input
@@ -101,13 +99,11 @@ const ContactPage = () => {
                             placeholder='johndoe@gmail.com'
                             value={contactForm.email}
                             onChange={(e) => setContactForm({...contactForm, email: e.target.value})}
-                            className='mt-1 block w-full bg-gray-700 border border-gray-900 rounded-md shadow-sm py-2
-                            px-3 text-white focus:outline-none focus:ring-2
-                            '
+                            className='mt-2 block w-full rounded-lg border border-neutral-700 bg-black px-4 py-3 text-white placeholder:text-neutral-500 focus:border-neutral-500 focus:outline-none'
                         />
                     </div>
                     <div>
-                        <label htmlFor='message' className='block text-sm font-medium text-gray-50 dark:text-gray-900'>
+                        <label htmlFor='message' className='block text-sm font-bold uppercase tracking-wide text-neutral-300'>
                             Message
                         </label>
                         <textarea
@@ -117,26 +113,23 @@ const ContactPage = () => {
                             rows='3'
                             value={contactForm.message}
                             onChange={(e) => setContactForm({...contactForm, message: e.target.value})}
-                            className='mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm
-                            py-2 px-3 text-white focus:outline-none focus:ring-2 resize-none'
+                            className='mt-2 block w-full resize-none rounded-lg border border-neutral-700 bg-black px-4 py-3 text-white placeholder:text-neutral-500 focus:border-neutral-500 focus:outline-none'
                             style={{ minHeight: '80px', overflow: 'hidden' }}
                         />
                     </div>
-                    <div className='flex justify-center'>
+                    <div className='flex justify-center pt-2'>
                         <button
                             type='submit'
-                            className='max-w-md flex justify-center items-center py-2 px-4 border border-transparent rounded-md 
-                            shadow-sm text-sm font-medium text-white bg-gray-700 hover:bg-gray-500 active:bg-gray-400
-                            focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 disabled:opacity-50'
+                            className='inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-extrabold uppercase tracking-wide text-black transition hover:bg-neutral-200 disabled:opacity-50'
                         >
-                            Send Message  
+                            Send Message
                         </button>
 
                     </div>
                 </form>
 
-)}    
-        </motion.div>
+)}
+        </Motion.div>
 
     )
 }

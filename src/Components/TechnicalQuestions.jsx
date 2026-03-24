@@ -1,6 +1,6 @@
 import React from "react";
 import Question from "./Question";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 
 const questions = [
   {
@@ -82,7 +82,7 @@ const questions = [
 
 const TechnicalQuestions = () => {
   return (
-    <motion.div
+    <Motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -91,7 +91,7 @@ const TechnicalQuestions = () => {
       {questions.map((q, i) => (
         <Question key={i} question={q.question} answer={q.answer} index={i} />
       ))}
-    </motion.div>
+    </Motion.div>
   );
 };
 

@@ -1,6 +1,6 @@
 
 import React, { useEffect, useMemo } from 'react'
-import { motion } from 'framer-motion'
+import { motion as Motion } from 'framer-motion'
 import { useLocation } from 'react-router'
 import ProjectCard from './ProjectCard'
 
@@ -116,7 +116,7 @@ const ProjectPage = () => {
 
     return (
 
-        <motion.div
+        <Motion.div
             className="flex justify-center items-center py-10 relative z-10"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -132,7 +132,7 @@ const ProjectPage = () => {
                     />
                 ))}
             </div>
-        </motion.div>
+        </Motion.div>
     )
 }
 

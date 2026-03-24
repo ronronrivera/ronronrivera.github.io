@@ -1,6 +1,6 @@
 
 import React, {useState} from 'react'
-import {motion} from "framer-motion"
+import { motion as Motion } from "framer-motion"
 import { User, Brain, CircleHelp } from 'lucide-react'
 import Bio from './Bio'
 import TechnicalQuestions from './TechnicalQuestions'
@@ -19,7 +19,7 @@ const AboutMe = () => {
   return (
     <div className="flex flex-col items-center mt-6">
   {/* Name + Info */}
-  <motion.div
+  <Motion.div
       initial={{opacity: 0, y: 20}}
       animate={{opacity: 1, y: 0}}
       transition={{duration: 0.8}}
@@ -42,8 +42,8 @@ const AboutMe = () => {
         <h1 className="text-2xl font-bold">Ron-ron Aspe Rivera</h1>
         <p className="dark:text-gray-600 text-gray-300">Computer Science Student · Backend Developer </p>
       </div>
-    </motion.div>
-    <motion.div
+    </Motion.div>
+    <Motion.div
       initial={{opacity: 0, y: 20}}
       animate={{opacity: 1, y: 0}}
       transition={{duration: 0.8}}
@@ -67,7 +67,7 @@ const AboutMe = () => {
       {activeTab === "about" && <Bio/>}
       {activeTab === "skills" && <WhatICanDo/>}
       {activeTab === "faq" && <TechnicalQuestions/>}
-    </motion.div>
+    </Motion.div>
  </div>
 
   )
