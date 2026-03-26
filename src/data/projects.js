@@ -24,7 +24,7 @@ export const PROJECTS = [
     techStack: ["C++17", "OpenGL 3.3", "GLFW", "GLM", "Assimp", "CMake"],
     result:
       "Delivered a stable playable prototype with smooth performance on modest hardware.",
-    image: "/project-images/zombie-horde.mp4",
+    image: "/project-images/zombie.mp4",
     liveUrl: "",
     sourceUrl: "https://github.com/ronronrivera/Zombie-Horde",
     inDevelopment: true,

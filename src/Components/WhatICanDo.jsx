@@ -6,8 +6,8 @@ const WhatICanDo = () => {
   const services = [
     {
       num: "01",
-      title: "Backend Developer ",
-      desc: "I build fast, scalable, and maintainable web applications using MongoDB, Express, React, and Node.js — ensuring both strong backend logic and smooth user experience."
+      title: "Full-Stack Development (Backend-Focused)",
+      desc: "I build scalable full-stack applications with strong backend architecture using Node.js, Express, MongoDB/PostgreSQL, and React for reliable end-to-end product delivery."
     },
     {
       num: "02",
@@ -41,8 +41,8 @@ const WhatICanDo = () => {
     },
     {
       num: "08",
-      title: "n8n Workflow Automation & API Orchestration",
-      desc: "I design scalable automations using n8n — integrating multiple APIs, building background tasks, webhooks, data pipelines, and fully automated business workflows without relying on expensive SaaS tools."
+      title: "Graphics Engineering (C++/OpenGL)",
+      desc: "I build graphics-heavy systems from scratch, including rendering pipelines, collision logic, and lighting mechanics, as demonstrated in my Zombie Horde project."
     }
   ];
 
@@ -56,11 +56,14 @@ const WhatICanDo = () => {
       <h2 className="text-2xl font-bold mb-4">💼 What I Can Do for You</h2>
 
       <p className="text-sm leading-relaxed mb-4">
-        I design and develop <span className="text-blue-400 font-semibold">modern, high-performance web applications</span> that bring real value to clients — combining strong backend logic, responsive design, and seamless user experience.
+        I design and develop <span className="text-blue-400 font-semibold">modern, high-performance software systems</span> by combining full-stack delivery, backend reliability, and graphics engineering.
       </p>
 
       <p className="text-sm leading-relaxed mb-6">
-        Whether you’re looking for a <span className="text-blue-400 font-semibold">real-time communication platform</span> or a <span className="text-blue-400 font-semibold">secure, data-driven e-commerce system</span>, I can help you build it from concept to deployment — clean, fast, and reliable.
+        Whether you need a <span className="text-blue-400 font-semibold">real-time full-stack platform</span>, a
+        <span className="text-blue-400 font-semibold"> secure backend-first application</span>, or a
+        <span className="text-blue-400 font-semibold"> graphics-focused C++ project</span>, I can help you build it
+        from concept to deployment.
       </p>
 
       <div className="space-y-6 mt-6">

@@ -58,13 +58,16 @@ function MyInfo() {
                         <h2 className="text-xl font-bold">Hi, I'm Ron <span className="inline-block wave-hover">👋</span></h2>
                         <p className="sm:text-sm text-xs">
                             <span className="inline-block w-1 h-1 mb-[2px] mr-1 bg-green-500 rounded-full"></span>
-                            Freelance Developer · Remote (Philippines, GMT+8)
+                            Software Engineer · Backend Specialist · Graphics Engineer
                         </p>
                     </div>
                 </div>
                 <div className="mt-5">
                     <p className="text-center sm:text-left">
-                        As a freelance developer, I utilize tools such as React, Node.js, and n8n to create responsive websites and applications, along with automated workflows. My focus is on delivering reliable, maintainable products enhanced by smart automations, emphasizing clean code, scalability, and user-centered design.
+                        As a software engineer, I build full-stack applications with strong backend foundations and also
+                        engineer graphics projects in C++/OpenGL. From platforms like Recruify and Case Forge to systems
+                        inspired by Zombie Horde, I focus on clean architecture, performance, and dependable real-world
+                        execution.
                     </p>
                 </div>
                 <div className="flex items-center space-x-2 my-10">

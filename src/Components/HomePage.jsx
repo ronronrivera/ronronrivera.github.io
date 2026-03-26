@@ -104,14 +104,16 @@ export default function HomePage() {
           className="grid items-start gap-8 lg:grid-cols-[1fr_auto]"
         >
           <div className="space-y-6">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-neutral-400">Full-Stack Developer</p>
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-neutral-400">
+              Software Engineer • Backend Specialist • Graphics Engineer
+            </p>
 
             <h1 className="max-w-4xl text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
               Ron-ron Aspe Rivera
             </h1>
 
             <p className="max-w-3xl text-lg leading-8 text-neutral-300 sm:text-xl">
-              I build modern full-stack products that feel polished on the frontend and stay reliable on the backend.
+              I build project-driven systems, from C++ to full-stack products and real-time platforms with production-ready backend architecture.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -131,7 +133,7 @@ export default function HomePage() {
                 className="inline-flex items-center gap-2 rounded-full border border-neutral-600 px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition hover:border-neutral-400"
               >
                 <Download className="h-4 w-4" />
-                Download CV
+                Resume
               </a>
             </div>
           </div>
@@ -198,8 +200,8 @@ export default function HomePage() {
               <article className="rounded-2xl border border-neutral-800 bg-neutral-900/70 p-6 shadow-[0_14px_34px_rgba(0,0,0,0.45)] lg:col-span-7">
                 <h2 className="mb-4 text-3xl font-black leading-tight sm:text-4xl">What I Do</h2>
                 <p className="text-base leading-8 text-neutral-300 sm:text-lg">
-                  I specialize in performance-oriented C++ development and backend systems using Node.js and modern databases.
-                  My focus is building scalable systems, real-time applications, and efficient software architectures.
+                  I work as a software engineer with a backend specialty, and I also build graphics-focused systems in
+                  C++/OpenGL. My projects span real-time apps, secure API platforms, and game-engine-level rendering work.
                 </p>
                 <div className="mt-4 space-y-2 text-base leading-7 text-neutral-300 sm:text-lg">
                   <p>I care about:</p>

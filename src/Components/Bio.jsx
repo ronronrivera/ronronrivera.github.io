@@ -16,19 +16,20 @@ const Bio = () => {
       <div className="text-sm leading-relaxed space-y-4">
         <p>
           I’m <span className="text-blue-400 font-semibold">Ron-ron Aspe Rivera</span>,
-          a <span className="text-blue-400 font-semibold">Computer Science student</span>,
-          <span className="text-blue-400 font-semibold"> Backend Developer</span>, and
-          <span className="text-blue-400 font-semibold"> n8n automation engineer</span> passionate about building
-          high-performance software, scalable automations, and clean, user-focused websites.
+          a <span className="text-blue-400 font-semibold">Software Engineer</span>,
+          <span className="text-blue-400 font-semibold"> Backend Specialist</span>, and
+          <span className="text-blue-400 font-semibold"> Graphics Engineer</span> focused on building reliable
+          software across web platforms and real-time rendering systems.
         </p>
 
         <p>
-          My core interest lies in creating systems that combine
-          <span className="text-blue-400 font-semibold"> precise mathematical logic, physics simulation,</span>
-          and <span className="text-blue-400 font-semibold">artificial intelligence</span>.
-          Whether it's crafting sturdy back-end systems, automating complex multi-API workflows in
-          <span className="text-blue-400 font-semibold"> n8n</span>, or producing realistic lighting in OpenGL, I enjoy turning
-          challenging problems into elegant and effective solutions.
+          My core interest is building systems that combine
+          <span className="text-blue-400 font-semibold"> backend architecture, real-time interaction,</span>
+          and <span className="text-blue-400 font-semibold">graphics programming</span>.
+          From projects like <span className="text-blue-400 font-semibold">Zombie Horde</span> in C++/OpenGL to
+          full-stack platforms such as <span className="text-blue-400 font-semibold">Recruify</span> and
+          <span className="text-blue-400 font-semibold"> Case Forge</span>, I enjoy turning complex ideas into
+          practical, production-ready results.
         </p>
 
         <p>
