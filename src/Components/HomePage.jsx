@@ -104,7 +104,7 @@ export default function HomePage() {
           className="grid items-start gap-8 lg:grid-cols-[1fr_auto]"
         >
           <div className="space-y-6">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-neutral-400">
+            <p className="whitespace-nowrap text-[8px] font-bold uppercase tracking-normal text-neutral-400 sm:text-sm sm:tracking-[0.2em]">
               Software Engineer • Backend Specialist • Graphics Engineer
             </p>
 
@@ -149,11 +149,11 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto w-full max-w-6xl px-4 pb-2 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex w-full flex-nowrap justify-center gap-2 sm:flex-wrap sm:gap-4">
           <button
             type="button"
             onClick={() => setActiveTab("about")}
-            className={`min-w-40 rounded-lg px-7 py-3 text-base font-bold uppercase tracking-wide transition ${
+            className={`min-w-[88px] flex-none rounded-lg px-3 py-2 text-xs font-bold uppercase tracking-wide transition sm:min-w-40 sm:px-7 sm:py-3 sm:text-base ${
               activeTab === "about"
                 ? "bg-white text-black"
                 : "border border-neutral-700 bg-neutral-900 text-neutral-200 hover:border-neutral-500"
@@ -164,7 +164,7 @@ export default function HomePage() {
           <button
             type="button"
             onClick={() => setActiveTab("projects")}
-            className={`min-w-40 rounded-lg px-7 py-3 text-base font-bold uppercase tracking-wide transition ${
+            className={`min-w-[88px] flex-none rounded-lg px-3 py-2 text-xs font-bold uppercase tracking-wide transition sm:min-w-40 sm:px-7 sm:py-3 sm:text-base ${
               activeTab === "projects"
                 ? "bg-white text-black"
                 : "border border-neutral-700 bg-neutral-900 text-neutral-200 hover:border-neutral-500"
@@ -175,7 +175,7 @@ export default function HomePage() {
           <button
             type="button"
             onClick={() => setActiveTab("contact")}
-            className={`min-w-40 rounded-lg px-7 py-3 text-base font-bold uppercase tracking-wide transition ${
+            className={`min-w-[88px] flex-none rounded-lg px-3 py-2 text-xs font-bold uppercase tracking-wide transition sm:min-w-40 sm:px-7 sm:py-3 sm:text-base ${
               activeTab === "contact"
                 ? "bg-white text-black"
                 : "border border-neutral-700 bg-neutral-900 text-neutral-200 hover:border-neutral-500"

@@ -27,14 +27,14 @@ function ProjectModal({ project, onClose }) {
   return (
     <AnimatePresence>
       <Motion.div
-        className="fixed inset-0 z-[120] flex items-center justify-center bg-black/75 px-4 py-8"
+        className="fixed inset-0 z-[120] flex items-start justify-center overflow-y-auto bg-black/75 px-4 py-4 sm:items-center sm:py-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         onClick={onClose}
       >
         <Motion.div
-          className="w-full max-w-3xl rounded-2xl border border-neutral-700 bg-neutral-950 p-6 shadow-[0_18px_50px_rgba(0,0,0,0.55)] sm:p-8"
+          className="my-auto w-full max-w-3xl max-h-[calc(100vh-2rem)] overflow-y-auto rounded-2xl border border-neutral-700 bg-neutral-950 p-6 shadow-[0_18px_50px_rgba(0,0,0,0.55)] sm:max-h-[calc(100vh-4rem)] sm:p-8"
           initial={{ scale: 0.95, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.98, opacity: 0 }}
