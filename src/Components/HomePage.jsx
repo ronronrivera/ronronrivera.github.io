@@ -105,7 +105,7 @@ export default function HomePage() {
         >
           <div className="space-y-6">
             <p className="whitespace-nowrap text-[8px] font-bold uppercase tracking-normal text-neutral-400 sm:text-sm sm:tracking-[0.2em]">
-              Software Engineer • Backend Specialist • Graphics Engineer
+              Software Engineer • Backend Specialist • 3D Graphics Engineer
             </p>
 
             <h1 className="max-w-4xl text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
@@ -127,7 +127,7 @@ export default function HomePage() {
               </button>
 
               <a
-                href="https://drive.google.com/file/d/1qytfzLDfg7WnHbGxYP_Zdjy_iV-lBih0/view?usp=sharing"
+                href="https://drive.google.com/file/d/122w31bHpVxupO0jBnWIYOyrUdDQ9YkMO/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-neutral-600 px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition hover:border-neutral-400"
