@@ -127,7 +127,7 @@ export default function HomePage() {
               </button>
 
               <a
-                href="https://drive.google.com/file/d/122w31bHpVxupO0jBnWIYOyrUdDQ9YkMO/view?usp=sharing"
+                href="https://drive.google.com/file/d/1vk-TC-U9UFJuACJ9QBIKYEKE-RzlZNrh/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-neutral-600 px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition hover:border-neutral-400"
