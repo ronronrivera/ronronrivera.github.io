@@ -55,8 +55,8 @@ const ContactPage = () => {
     }
 
     return (
-        <Motion.div 
-            className='rounded-2xl border border-neutral-800 bg-neutral-900/60 p-6 shadow-[0_14px_34px_rgba(0,0,0,0.45)] sm:p-8'
+        <Motion.div
+            className='rounded-3xl border border-white/10 bg-white/[0.02] p-6 backdrop-blur sm:p-8'
             initial={{opacity: 0, y: 20}}
             animate={{opacity: 1, y: 0}}
             transition={{duration: 0.35, ease: "easeOut"}}>
@@ -74,7 +74,7 @@ const ContactPage = () => {
             (                
                 <form onSubmit={handleSubmit} className='space-y-4'>
                     <div>
-                        <label htmlFor='name' className='block text-sm font-bold uppercase tracking-wide text-neutral-300'>
+                        <label htmlFor='name' className='block font-mono text-xs font-medium uppercase tracking-[0.2em] text-neutral-400'>
                             Name
                         </label>
                         <input
@@ -84,11 +84,11 @@ const ContactPage = () => {
                             value={contactForm.name}
                             onChange={(e) => setContactForm({...contactForm, name: e.target.value})}
                             placeholder='John Doe'
-                            className='mt-2 block w-full rounded-lg border border-neutral-700 bg-black px-4 py-3 text-white placeholder:text-neutral-500 focus:border-neutral-500 focus:outline-none'
+                            className='mt-2 block w-full rounded-xl border border-white/10 bg-black/50 px-4 py-3 text-white placeholder:text-neutral-600 transition focus:border-white/40 focus:outline-none'
                         />
                     </div>
                     <div>
-                        <label htmlFor='email' className='block text-sm font-bold uppercase tracking-wide text-neutral-300'>
+                        <label htmlFor='email' className='block font-mono text-xs font-medium uppercase tracking-[0.2em] text-neutral-400'>
                             Email
                         </label>
                         <input
@@ -98,11 +98,11 @@ const ContactPage = () => {
                             placeholder='johndoe@gmail.com'
                             value={contactForm.email}
                             onChange={(e) => setContactForm({...contactForm, email: e.target.value})}
-                            className='mt-2 block w-full rounded-lg border border-neutral-700 bg-black px-4 py-3 text-white placeholder:text-neutral-500 focus:border-neutral-500 focus:outline-none'
+                            className='mt-2 block w-full rounded-xl border border-white/10 bg-black/50 px-4 py-3 text-white placeholder:text-neutral-600 transition focus:border-white/40 focus:outline-none'
                         />
                     </div>
                     <div>
-                        <label htmlFor='message' className='block text-sm font-bold uppercase tracking-wide text-neutral-300'>
+                        <label htmlFor='message' className='block font-mono text-xs font-medium uppercase tracking-[0.2em] text-neutral-400'>
                             Message
                         </label>
                         <textarea
@@ -112,18 +112,17 @@ const ContactPage = () => {
                             rows='3'
                             value={contactForm.message}
                             onChange={(e) => setContactForm({...contactForm, message: e.target.value})}
-                            className='mt-2 block w-full resize-none rounded-lg border border-neutral-700 bg-black px-4 py-3 text-white placeholder:text-neutral-500 focus:border-neutral-500 focus:outline-none'
+                            className='mt-2 block w-full resize-none rounded-xl border border-white/10 bg-black/50 px-4 py-3 text-white placeholder:text-neutral-600 transition focus:border-white/40 focus:outline-none'
                             style={{ minHeight: '80px', overflow: 'hidden' }}
                         />
                     </div>
-                    <div className='flex justify-center pt-2'>
+                    <div className='pt-2'>
                         <button
                             type='submit'
-                            className='inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-extrabold uppercase tracking-wide text-black transition hover:bg-neutral-200 disabled:opacity-50'
+                            className='inline-flex w-full items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold uppercase tracking-wide text-black transition hover:bg-neutral-200 disabled:opacity-50'
                         >
                             Send Message
                         </button>
-
                     </div>
                 </form>
 

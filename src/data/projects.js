@@ -1,17 +1,17 @@
 export const PROJECTS = [
   {
-    id: 1,
-    title: "Case Forge",
+    id: 8,
+    title: "Real-Time ASL Detection",
     summary:
-      "AI Portfolio Builder SaaS that transforms freelancer notes into polished, multi-template case studies and exportable PDFs.",
+      "Live American Sign Language letter and digit recognition from a webcam feed with on-screen predictions and confidence scores.",
     whatBuilt:
-      "Built Gemini-powered structured JSON generation, multi-template HTML rendering, and a serverless Puppeteer PDF export pipeline with Supabase asset storage.",
-    techStack: ["React", "Node.js", "Express", "PostgreSQL", "Supabase", "Gemini API", "Stripe", "Puppeteer"],
+      "Built a MediaPipe hand-landmark pipeline that extracts 21 keypoints into a normalized 63-value vector, feeding a small PyTorch MLP classifier with live OpenCV overlays.",
+    techStack: ["Python 3", "PyTorch", "MediaPipe", "OpenCV", "NumPy", "scikit-learn"],
     result:
-      "Shipped credit-based billing with atomic SQL deduction, Stripe Checkout, and webhook top-ups to prevent race conditions and double charges.",
-    image: "/project-images/case-forge.png",
-    liveUrl: "https://case-forge.vercel.app/",
-    sourceUrl: "https://github.com/ronronrivera/",
+      "Achieved ~97% validation accuracy and reliable real-time predictions by classifying landmarks instead of raw pixels for robustness to lighting and background.",
+    image: "/project-images/asl-detection.mp4",
+    liveUrl: "",
+    sourceUrl: "https://github.com/ronronrivera/real-time-asl-detection",
     inDevelopment: false,
   },
   {
@@ -28,6 +28,21 @@ export const PROJECTS = [
     liveUrl: "",
     sourceUrl: "https://github.com/ronronrivera/Zombie-Horde",
     inDevelopment: true,
+  },
+  {
+    id: 1,
+    title: "Case Forge",
+    summary:
+      "AI Portfolio Builder SaaS that transforms freelancer notes into polished, multi-template case studies and exportable PDFs.",
+    whatBuilt:
+      "Built Gemini-powered structured JSON generation, multi-template HTML rendering, and a serverless Puppeteer PDF export pipeline with Supabase asset storage.",
+    techStack: ["React", "Node.js", "Express", "PostgreSQL", "Supabase", "Gemini API", "Stripe", "Puppeteer"],
+    result:
+      "Shipped credit-based billing with atomic SQL deduction, Stripe Checkout, and webhook top-ups to prevent race conditions and double charges.",
+    image: "/project-images/case-forge.png",
+    liveUrl: "https://case-forge.vercel.app/",
+    sourceUrl: "https://github.com/ronronrivera/",
+    inDevelopment: false,
   },
   {
     id: 3,

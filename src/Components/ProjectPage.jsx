@@ -17,6 +17,17 @@ const projectList = [
     },
 
     {
+        title: "Real-Time ASL Detection",
+        paragraph: "A real-time American Sign Language recognizer that reads letters and digits straight from a webcam. The first version used a pixel-based CNN and fell apart the moment lighting or background changed. So I rebuilt it around hand landmarks instead: MediaPipe extracts 21 keypoints from the hand, I normalize them into a 63-value vector, and a small PyTorch MLP (63 → 128 → 64 → 36) classifies the sign. By throwing away raw pixels and keeping only the geometry of the hand, the model stopped caring about lighting and background and hit around 97% validation accuracy with reliable live predictions. OpenCV draws the prediction and confidence right on the feed. It can't catch J and Z since those are motion-based signs and this classifies single frames, an honest limit of the approach.",
+        imgSrc: "/project-images/asl-detection.mp4",
+        link: "#",
+        source: "https://github.com/ronronrivera/real-time-asl-detection",
+        hasUrl: false,
+        isSuspended: false,
+        inDevelopment: false,
+    },
+
+    {
         title: "Case Forge",
         paragraph: "Most freelancers lose clients not because their work is bad, but because they can't present it well. Writing a case study from scratch takes hours, structuring the problem, polishing the solution, making it look professional. Most skip it entirely and lose the deal. Caseforge solves that. A freelancer fills in a short form describing their project in plain language, rough notes, bullet points, anything, and the platform uses the Gemini AI API to rewrite it into polished, professional case study copy. The result is rendered into a beautifully designed PDF template, ready to send to a client or add to a portfolio.The product runs on a credit system. Every new user gets 2 free credits, enough for one complete generation. Watching your rough notes transform into something that actually looks like a real agency deliverable is the moment that converts free users into paying ones.",
         link: "https://case-forge.vercel.app/",
@@ -24,7 +35,7 @@ const projectList = [
         source: "https://github.com/ronronrivera/",
         hasUrl: true,
         isSuspended: false,
-        inDevelopment: false, 
+        inDevelopment: false,
     },
 
     {

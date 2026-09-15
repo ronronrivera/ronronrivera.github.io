@@ -9,7 +9,16 @@ export default {
     "node_modules/flowbite-react/lib/esm/**/*.js"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+      },
+      letterSpacing: {
+        tightest: '-0.04em',
+      },
+    },
   },
   plugins: [flowbiteReact],
 }
