@@ -78,7 +78,7 @@ function ChatBot() {
   }, [chatHistory, isLoading, isOpen]);
 
   return (
-    <div className="fixed bottom-6 right-4 z-[130] sm:bottom-8 sm:right-8">
+    <div className="fixed bottom-6 right-4 z-[130] flex flex-col items-end sm:bottom-8 sm:right-8">
       <AnimatePresence>
         {isOpen ? (
           <Motion.div

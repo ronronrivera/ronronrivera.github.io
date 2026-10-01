@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { motion as Motion, AnimatePresence } from "framer-motion";
 import { X, ExternalLink, Github, ArrowUpRight } from "lucide-react";
 import { PROJECTS } from "../data/projects.js";
+import { techStyle } from "../lib/langColors.js";
 
 const isVideoMedia = (source = "") => source.endsWith(".mp4") || source.endsWith(".webm");
 
@@ -110,6 +111,7 @@ function ProjectModal({ project, onClose }) {
               {project.techStack.map((tech) => (
                 <span
                   key={tech}
+                  style={techStyle(tech)}
                   className="rounded-full border border-white/12 bg-black/50 px-3 py-1 text-xs font-medium text-neutral-200"
                 >
                   {tech}
@@ -180,6 +182,7 @@ function FeaturedProject({ project, index, onOpen }) {
           {project.techStack.slice(0, 6).map((tech) => (
             <span
               key={tech}
+              style={techStyle(tech)}
               className="rounded-full border border-white/10 bg-black/40 px-3 py-1 text-xs font-medium text-neutral-300"
             >
               {tech}
@@ -267,6 +270,7 @@ export default function Projects() {
               {project.techStack.slice(0, 3).map((tech) => (
                 <span
                   key={tech}
+                  style={techStyle(tech)}
                   className="rounded-full border border-white/10 bg-black/40 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wide text-neutral-400"
                 >
                   {tech}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion as Motion, AnimatePresence } from "framer-motion";
-import { Download, Mail, ArrowUpRight } from "lucide-react";
+import { Download, ArrowUpRight, Copy, GraduationCap, Compass } from "lucide-react";
 import {
   SiJavascript,
   SiPython,
@@ -20,7 +20,6 @@ import {
   SiGithub,
   SiLinux,
   SiGmail,
-  SiLeetcode,
   SiPytorch,
   SiOpencv,
   SiScikitlearn,
@@ -32,8 +31,8 @@ import { FaLinkedin, FaFacebookSquare, FaGithub, FaPhoneAlt } from "react-icons/
 import { BsLightningChargeFill } from "react-icons/bs";
 import toast from "react-hot-toast";
 import Projects from "./Projects.jsx";
-import ContactPage from "./ContactPage.jsx";
 import ChatBot from "./ChatBot.jsx";
+import { techStyle } from "../lib/langColors.js";
 
 const SKILL_CATEGORIES = [
   {
@@ -98,110 +97,72 @@ const TABS = [
   { id: "contact", label: "Contact" },
 ];
 
+// Email assembled from parts so the raw address never appears as a literal in
+// the source, and is shown obfuscated to discourage scraping bots.
+const EMAIL_PARTS = ["ronaspe42", "gmail", "com"];
+const EMAIL_DISPLAY = `${EMAIL_PARTS[0]} [at] ${EMAIL_PARTS[1]} (dot) ${EMAIL_PARTS[2]}`;
+const EMAIL_ADDRESS = `${EMAIL_PARTS[0]}@${EMAIL_PARTS[1]}.${EMAIL_PARTS[2]}`;
+const PHONE_NUMBER = "+63 993 580 9668";
+
 const CONTACT_LINKS = [
-  { label: "Email", value: "ronaspe42@gmail.com", icon: SiGmail, action: "copy" },
+  { label: "Email", value: EMAIL_DISPLAY, icon: SiGmail, copy: EMAIL_ADDRESS },
+  { label: "Phone", value: PHONE_NUMBER, icon: FaPhoneAlt, copy: PHONE_NUMBER },
   { label: "LinkedIn", value: "in/ronronrivera", icon: FaLinkedin, href: "https://www.linkedin.com/in/ronronrivera/" },
   { label: "GitHub", value: "@ronronrivera", icon: FaGithub, href: "https://github.com/ronronrivera" },
-  { label: "LeetCode", value: "ronron_rivera", icon: SiLeetcode, href: "https://leetcode.com/u/ronron_rivera/" },
   { label: "Facebook", value: "ronron.rivera42", icon: FaFacebookSquare, href: "https://www.facebook.com/ronron.rivera42" },
-  { label: "Phone", value: "+63 993 580 9668", icon: FaPhoneAlt, href: "tel:+639935809668" },
+];
+
+const FOCUS_ITEMS = [
+  "Intelligent systems: LLMs and computer vision",
+  "Studying electronics and mechanical engineering to move into robotics",
 ];
 
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState("about");
 
-  const handleCopyEmail = async () => {
+  const handleCopy = async (value, label) => {
     try {
-      await navigator.clipboard.writeText("ronaspe42@gmail.com");
-      toast.success("Email copied to clipboard");
+      await navigator.clipboard.writeText(value);
+      toast.success(`${label} copied to clipboard`);
     } catch {
-      toast.error("Could not copy email");
+      toast.error(`Could not copy ${label.toLowerCase()}`);
     }
   };
 
   return (
     <main className="relative text-white">
       {/* ── Hero ───────────────────────────────────────────── */}
-      <section className="mx-auto w-full max-w-6xl px-5 pb-10 pt-20 sm:px-6 sm:pt-28 lg:px-8">
+      <section className="mx-auto w-full max-w-6xl px-5 pb-10 pt-24 text-center sm:px-6 sm:pt-32 lg:px-8">
         <Motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="grid items-center gap-10 lg:grid-cols-[1fr_auto]"
         >
-          <div>
-            <div className="flex items-center gap-3">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
-              </span>
-              <span className="eyebrow">Available for work · 2026</span>
-            </div>
+          <h1 className="mx-auto font-display text-3xl font-bold leading-[1.15] tracking-tight text-balance sm:text-4xl lg:text-5xl">
+            Software Engineer
+            <br />
+            <span className="text-neutral-400">
+              Aspiring Computer Vision and Robotics Engineer
+            </span>
+          </h1>
 
-            <h1 className="mt-6 font-display text-[15vw] font-bold leading-[0.92] tracking-tightest text-balance sm:text-7xl lg:text-8xl">
-              Ron-ron
-              <br />
-              <span className="text-neutral-500">Rivera</span>
-            </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-neutral-300">
+            I&apos;m still an aspiring computer vision and robotics engineer, not
+            working in those fields yet, but I do have hands-on experience in
+            full-stack development.
+          </p>
 
-            <p className="mt-6 max-w-xl font-mono text-xs uppercase tracking-[0.25em] text-neutral-400 sm:text-sm">
-              Software Engineer / Backend / Aspiring Computer Vision and Robotics Engineer
-            </p>
-
-            <p className="mt-6 max-w-xl text-lg leading-8 text-neutral-300">
-              I build project-driven systems that connect perception to action,
-              from computer vision models and robotics to full-stack products
-              and real-time platforms with production-ready backend
-              architecture.
-            </p>
-
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <button
-                type="button"
-                onClick={() => setActiveTab("contact")}
-                className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition hover:bg-neutral-200"
-              >
-                <Mail className="h-4 w-4" />
-                Hire me
-                <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </button>
-
-              <a
-                href="https://drive.google.com/file/d/1vk-TC-U9UFJuACJ9QBIKYEKE-RzlZNrh/view?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-6 py-3 text-sm font-semibold text-white backdrop-blur transition hover:border-white/40 hover:bg-white/[0.06]"
-              >
-                <Download className="h-4 w-4" />
-                Resume
-              </a>
-            </div>
+          <div className="mt-8 flex justify-center">
+            <a
+              href="https://drive.google.com/file/d/1vk-TC-U9UFJuACJ9QBIKYEKE-RzlZNrh/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-6 py-3 text-sm font-semibold text-white backdrop-blur transition hover:border-white/40 hover:bg-white/[0.06]"
+            >
+              <Download className="h-4 w-4" />
+              Resume
+            </a>
           </div>
-
-          {/* Framed portrait */}
-          <Motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
-            className="relative mx-auto lg:mx-0"
-          >
-            <div className="absolute -inset-3 rounded-[2rem] border border-white/10" />
-            <div className="relative overflow-hidden rounded-[1.6rem] border border-white/15">
-              <img
-                src="/me.jpg"
-                alt="Ron-ron Rivera"
-                className="h-56 w-56 object-cover grayscale transition duration-700 hover:grayscale-0 sm:h-64 sm:w-64 lg:h-72 lg:w-72"
-              />
-              <div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-black/80 to-transparent px-4 pb-3 pt-8">
-                <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-neutral-300">
-                  PH · GMT+8
-                </span>
-                <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-neutral-300">
-                  Open to remote
-                </span>
-              </div>
-            </div>
-          </Motion.div>
         </Motion.div>
       </section>
 
@@ -245,61 +206,80 @@ export default function HomePage() {
             className="mx-auto w-full max-w-6xl px-5 py-14 sm:px-6 sm:py-16 lg:px-8"
           >
             <p className="eyebrow mb-8">01 · About</p>
-            <div className="grid gap-6 lg:grid-cols-12">
-              <article className="rounded-3xl border border-white/10 bg-white/[0.02] p-7 backdrop-blur lg:col-span-7">
-                <h2 className="font-display text-3xl font-bold leading-tight sm:text-4xl">
-                  What I do
-                </h2>
-                <p className="mt-4 text-base leading-8 text-neutral-300 sm:text-lg">
-                  I work as a computer vision and robotics engineer with a
-                  strong backend foundation. I train landmark and image models
-                  and ship them into real-time apps. My projects span secure API
-                  platforms, real-time systems, and hands-on machine learning.
-                </p>
-                <div className="mt-7 grid grid-cols-2 gap-3">
-                  {["Performance", "System design", "Clean architecture", "Real-world deployment"].map(
-                    (item, i) => (
-                      <div
-                        key={item}
-                        className="flex items-center gap-3 rounded-xl border border-white/10 bg-black/40 px-4 py-3"
-                      >
-                        <span className="font-mono text-xs text-neutral-500">
-                          0{i + 1}
-                        </span>
-                        <span className="text-sm text-neutral-200">{item}</span>
-                      </div>
-                    )
-                  )}
+
+            <div className="grid gap-6 lg:grid-cols-2">
+              {/* Education */}
+              <article className="rounded-3xl border border-white/10 bg-white/[0.02] p-7 backdrop-blur">
+                <div className="flex items-center gap-2 text-neutral-400">
+                  <GraduationCap className="h-4 w-4" />
+                  <p className="eyebrow !tracking-[0.25em]">Education</p>
                 </div>
+                <h3 className="mt-4 font-display text-2xl font-bold sm:text-3xl">
+                  Caraga State University
+                </h3>
+                <p className="mt-2 font-mono text-xs uppercase tracking-[0.15em] text-neutral-400">
+                  BS Computer Science · Undergraduate
+                </p>
+                <p className="mt-4 text-base leading-7 text-neutral-300">
+                  Currently pursuing my Computer Science degree, with a focus on
+                  intelligent systems.
+                </p>
               </article>
 
-              <article className="rounded-3xl border border-white/10 bg-white/[0.02] p-7 backdrop-blur lg:col-span-5">
-                <h3 className="font-display text-2xl font-bold sm:text-3xl">
-                  Core stack
+              {/* Currently */}
+              <article className="rounded-3xl border border-white/10 bg-white/[0.02] p-7 backdrop-blur">
+                <div className="flex items-center gap-2 text-neutral-400">
+                  <Compass className="h-4 w-4" />
+                  <p className="eyebrow !tracking-[0.25em]">Currently</p>
+                </div>
+                <h3 className="mt-4 font-display text-2xl font-bold sm:text-3xl">
+                  What I&apos;m focused on
                 </h3>
-                <div className="mt-5 space-y-5">
-                  {SKILL_CATEGORIES.map((category) => (
-                    <div key={category.label}>
-                      <p className="eyebrow mb-2 !tracking-[0.2em]">{category.label}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {category.items.map((item) => {
-                          const Icon = item.icon;
-                          return (
-                            <span
-                              key={item.name}
-                              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-3 py-1 text-sm text-neutral-200 transition hover:border-white/30 hover:text-white"
-                            >
-                              <Icon className="h-3.5 w-3.5" />
-                              {item.name}
-                            </span>
-                          );
-                        })}
-                      </div>
+                <div className="mt-5 space-y-3">
+                  {FOCUS_ITEMS.map((item, i) => (
+                    <div
+                      key={item}
+                      className="flex items-start gap-3 rounded-xl border border-white/10 bg-black/40 px-4 py-3"
+                    >
+                      <span className="font-mono text-xs text-neutral-500">
+                        0{i + 1}
+                      </span>
+                      <span className="text-sm leading-6 text-neutral-200">{item}</span>
                     </div>
                   ))}
                 </div>
               </article>
             </div>
+
+            {/* Core stack */}
+            <article className="mt-6 rounded-3xl border border-white/10 bg-white/[0.02] p-7 backdrop-blur sm:p-9">
+              <h3 className="font-display text-2xl font-bold sm:text-3xl">
+                Core stack
+              </h3>
+              <div className="mt-6 grid gap-5 sm:grid-cols-2">
+                {SKILL_CATEGORIES.map((category) => (
+                  <div key={category.label}>
+                    <p className="eyebrow mb-2 !tracking-[0.2em]">{category.label}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {category.items.map((item) => {
+                        const Icon = item.icon;
+                        const style = techStyle(item.name);
+                        return (
+                          <span
+                            key={item.name}
+                            style={style}
+                            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-3 py-1 text-sm text-neutral-200 transition hover:border-white/30 hover:text-white"
+                          >
+                            <Icon className="h-3.5 w-3.5" />
+                            {item.name}
+                          </span>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </article>
           </Motion.section>
         ) : null}
 
@@ -331,13 +311,17 @@ export default function HomePage() {
                   Let&apos;s build something that converts.
                 </h2>
                 <p className="mt-5 max-w-md text-base leading-7 text-neutral-300 sm:text-lg">
-                  Need a developer for your next project? Send a message and
-                  I&apos;ll reply with a clear plan, scope, and timeline.
+                  Need a developer for your next project? Reach me on any of
+                  these and I&apos;ll reply with a clear plan, scope, and
+                  timeline.
                 </p>
+              </div>
 
-                <div className="mt-8 space-y-px overflow-hidden rounded-2xl border border-white/10">
+              <div className="lg:col-span-7">
+                <div className="space-y-px overflow-hidden rounded-2xl border border-white/10">
                   {CONTACT_LINKS.map((link) => {
                     const Icon = link.icon;
+                    const isCopy = Boolean(link.copy);
                     const inner = (
                       <>
                         <span className="flex items-center gap-3">
@@ -348,17 +332,21 @@ export default function HomePage() {
                         </span>
                         <span className="flex items-center gap-2 font-mono text-xs text-neutral-500">
                           {link.value}
-                          <ArrowUpRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
+                          {isCopy ? (
+                            <Copy className="h-3.5 w-3.5 transition group-hover:text-white" />
+                          ) : (
+                            <ArrowUpRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
+                          )}
                         </span>
                       </>
                     );
                     const classes =
-                      "group flex items-center justify-between bg-white/[0.02] px-4 py-3.5 transition hover:bg-white/[0.06]";
-                    return link.action === "copy" ? (
+                      "group flex items-center justify-between bg-white/[0.02] px-5 py-4 transition hover:bg-white/[0.06]";
+                    return isCopy ? (
                       <button
                         key={link.label}
                         type="button"
-                        onClick={handleCopyEmail}
+                        onClick={() => handleCopy(link.copy, link.label)}
                         className={`${classes} w-full text-left`}
                       >
                         {inner}
@@ -367,7 +355,7 @@ export default function HomePage() {
                       <a
                         key={link.label}
                         href={link.href}
-                        target={link.href?.startsWith("http") ? "_blank" : undefined}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className={classes}
                       >
@@ -376,10 +364,6 @@ export default function HomePage() {
                     );
                   })}
                 </div>
-              </div>
-
-              <div className="lg:col-span-7">
-                <ContactPage />
               </div>
             </div>
           </Motion.section>

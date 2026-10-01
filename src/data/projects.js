@@ -75,36 +75,6 @@ export const PROJECTS = [
     inDevelopment: false,
   },
   {
-    id: 5,
-    title: "E-Commerce Store",
-    summary:
-      "End-to-end e-commerce application with secure checkout and admin analytics.",
-    whatBuilt:
-      "Implemented Stripe payments, webhook reliability handling, caching, inventory-aware product flows, and coupons.",
-    techStack: ["React", "Node.js", "Express", "MongoDB", "Stripe", "Redis"],
-    result:
-      "Improved checkout reliability and reduced repeated API fetches with caching.",
-    image: "/project-images/commerce.jpg",
-    liveUrl: "https://simple-commerce-t58k.onrender.com/login",
-    sourceUrl: "https://github.com/ronronrivera/e-commerce-app",
-    inDevelopment: false,
-  },
-  {
-    id: 6,
-    title: "Chat App",
-    summary:
-      "Real-time messaging app with authentication, image sharing, and instant updates.",
-    whatBuilt:
-      "Developed socket-based messaging, JWT auth, media message support, and notification flows.",
-    techStack: ["React", "Node.js", "Socket.io", "MongoDB", "JWT", "Cloud Storage"],
-    result:
-      "Delivered responsive real-time conversations and stable session handling.",
-    image: "/project-images/chat-app.png",
-    liveUrl: "https://chat-app-iwxv3.sevalla.app/",
-    sourceUrl: "https://github.com/ronronrivera/chat-app/",
-    inDevelopment: false,
-  },
-  {
     id: 7,
     title: "Neovim Setup",
     summary:
