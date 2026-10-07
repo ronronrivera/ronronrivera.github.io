@@ -1,5 +1,20 @@
 export const PROJECTS = [
   {
+    id: 9,
+    title: "Pisara",
+    summary:
+      "Multiplayer whiteboard where everyone's strokes and cursors show up live on a shared infinite canvas. No sign-up needed.",
+    whatBuilt:
+      "Built a Canvas-based drawing engine (pen, shapes, arrows, text, eraser) with real-time broadcast sync, live cursors and presence, per-user undo/redo, link sharing with editor/viewer roles, and PNG export.",
+    techStack: ["React", "TypeScript", "HTML5 Canvas", "Zustand", "Supabase", "Three.js", "Tailwind CSS"],
+    result:
+      "Kept drawing fast under load by broadcasting changes instantly and batching saves to Postgres, with versioned elements and row-level security to reject stale or unauthorized edits.",
+    image: "/project-images/pisara.png",
+    liveUrl: "https://pisara-draw.vercel.app/",
+    sourceUrl: "https://github.com/ronronrivera/Pisara",
+    inDevelopment: true,
+  },
+  {
     id: 8,
     title: "Real-Time ASL Detection",
     summary:
