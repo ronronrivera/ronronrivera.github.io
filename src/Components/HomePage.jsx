@@ -154,7 +154,7 @@ export default function HomePage() {
 
           <div className="mt-8 flex justify-center">
             <a
-              href="https://drive.google.com/file/d/1vk-TC-U9UFJuACJ9QBIKYEKE-RzlZNrh/view?usp=sharing"
+              href="https://drive.google.com/file/d/1SK2RZXkqIbvLN4ye6r7enkRyI9fj9Opx/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-6 py-3 text-sm font-semibold text-white backdrop-blur transition hover:border-white/40 hover:bg-white/[0.06]"
